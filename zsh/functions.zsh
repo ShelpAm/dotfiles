@@ -2,12 +2,12 @@ function proxy {
   local proxy_ip='127.0.0.1'
   local proxy_port='7890'
 
-  local proxy_address=${proxy_ip}:${proxy_port}
-  local proxy_url=http://${proxy_address}
+  local proxy_address="${proxy_ip}:${proxy_port}"
+  local proxy_url="http://${proxy_address}"
   export http_proxy=$proxy_url \
-    https_proxy=$proxy_url \
-    ftp_proxy=$proxy_url  \
-    rsync_proxy=$proxy_url
+    https_proxy=$proxy_url     \
+    ftp_proxy=$proxy_url       \
+    rsync_proxy=$proxy_url     \
     all_proxy=$proxy_url
   git config --global http.proxy $proxy_address
   git config --global https.proxy ${proxy_address}
@@ -21,7 +21,7 @@ function unproxy {
     HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY ALL_PROXY
   git config --global --unset http.proxy
   git config --global --unset https.proxy
-  echo Run `sudo echo '' > /etc/apt/apt.conf.d/proxy.conf` to turn off proxy for apt:
+  echo 'Run `sudo echo "" > /etc/apt/apt.conf.d/proxy.conf` to disable proxy for apt.'
 }
 
 function reload {
@@ -29,9 +29,13 @@ function reload {
 }
 
 function config {
-  nvim $ZDOTDIR/.zshrc $ZDOTDIR/.zshenv && reload
+  nvim "$ZDOTDIR/.zshrc" "$ZDOTDIR/.zshenv" && reload
 }
 
-function ensure_filedir() {
-  [ ! -d $1 ] && mkdir -p "$(dirname $1)"
+function ensure_parent_dir {
+  [ ! -e $1 ] && mkdir -p "$(dirname $1)"
+}
+
+function ensure_dir {
+  [ ! -d $1 ] && mkdir -p "$1"
 }

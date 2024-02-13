@@ -7,16 +7,16 @@ source "${ZDOTDIR}/aliases.zsh"
 # ShelpAm's CONFIG END 
 ################################################################################
 
-ZINIT_BIN="${XDG_DATA_HOME}/zinit/zinit.git"
-ensure_filedir "${ZINIT_BIN}"
-[ ! -d $ZINIT_BIN/.git ] && git clone https://github.com/zdharma-continuum/zinit.git $ZINIT_BIN
+ZINIT_BIN_DIR="${XDG_DATA_HOME}/zinit/zinit.git"
+ensure_parent_dir "${ZINIT_BIN_DIR}"
+[ ! -d $ZINIT_BIN_DIR/.git ] && git clone https://github.com/zdharma-continuum/zinit.git $ZINIT_BIN_DIR
 typeset -A ZINIT           # Initial Zinit's hash definition
-source $ZINIT_BIN/zinit.zsh
+source $ZINIT_BIN_DIR/zinit.zsh
 
 HISTSIZE=100000
 SAVEHIST=${HISTSIZE}
 HISTFILE="${XDG_STATE_HOME}/zsh/history"
-ensure_filedir "${HISTFILE}"
+ensure_parent_dir "${HISTFILE}"
 
 setopt HIST_VERIFY          # Reload results of history expansion before executing
 setopt SHARE_HISTORY        # Constantly share history between shell instances

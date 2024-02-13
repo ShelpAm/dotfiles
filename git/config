@@ -1,7 +1,7 @@
 [user]
 	name = ShelpAm
 	email = 1178550325@qq.com
-	signingkey = 0xD0D1852D89B257B5
+	signingkey = D69BE4DA5F73C49EAE250100A73ADDFCD247D8A9
 [commit]
 	gpgsign = true
 [core]
