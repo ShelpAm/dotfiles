@@ -1,0 +1,6 @@
+registry=https://registry.npm.taobao.org/
+prefix=/home/shelpam/.local/share/npm
+cache=/home/shelpam/.cache/npm
+init-module=/home/shelpam/.config/npm/config/npm-init.js
+logs-dir=/home/shelpam/.local/state/npm/logs
+strict-ssl=false

@@ -1,0 +1,30 @@
+CompileFlags:                     # Tweak the parse settings
+  Add: [-DDEBUG, -std=c++26, -stdlib=libstdc++, -Wall, -Wextra]
+  Remove: []
+  Compiler: clang++             # Change argv[0] of compile flags to `clang++`
+
+Index:
+  Background: Build     # Disable slow background indexing of these files.
+  StandardLibrary: No
+
+Diagnostics:
+  UnusedIncludes: None
+  ClangTidy:
+    Add: [bugprone-*, cppcoreguidelines-*, performance-*, portability-*, modernize-*, readability-*]
+    Remove: [modernize-use-trailing-return-type, readability-identifier-length, cppcoreguidelines-pro-bounds-constant-array-index, readability-qualified-auto, readability-isolate-declaration, cppcoreguidelines-init-variables, bugprone-easily-swappable-parameters]
+    # cppcoreguidelines-avoid-magic-numbers, readability-magic-numbers
+    CheckOptions:
+      readability-identifier-naming.VariableCase: lower_case
+
+Completion:
+  AllScopes: No
+
+InlayHints:
+  BlockEnd: Yes
+  DeducedTypes: Yes
+  Designators: Yes
+  Enabled: Yes
+  ParameterNames: Yes
+
+Hover:
+  ShowAKA: Yes
