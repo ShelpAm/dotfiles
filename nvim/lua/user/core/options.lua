@@ -3,16 +3,16 @@ local opt = vim.opt
 opt.autoread = true
 opt.autowrite = false    -- Enable auto write
 opt.autowriteall = false -- Enable auto write all the files
-opt.background = 'light'
+opt.background = 'dark'
 opt.binary = true
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.colorcolumn = { '+0', '+20' }
+opt.colorcolumn = { '+0' }
 opt.cmdheight = 1
 opt.completeopt = 'menu,menuone,noselect'
 opt.conceallevel = 3           -- Hide * markup for bold and italic
 opt.confirm = false            -- Confirm to save changes before exiting modified buffer
 opt.cursorcolumn = false       -- Disable highlighting of the current column
-opt.cursorline = true          -- Enable highlighting of the current line
+opt.cursorline = false         -- Enable highlighting of the current line
 opt.encoding = 'utf-8'
 opt.expandtab = true           -- Use spaces instead of tabs
 opt.formatoptions = 'jcroqlnt' -- tcqj
@@ -104,7 +104,7 @@ vim.filetype.add {
   },
 }
 
-vim.cmd('highlight CursorLine guifg= guibg=#f0f2f5')
+-- vim.cmd('highlight CursorLine guifg= guibg=#f0f2f5')
 
 if vim.fn.has('nvim-0.9.0') == 1 then
   opt.splitkeep = 'screen'

@@ -37,12 +37,12 @@ return {
         centralize_selection = true,
         cursorline = true,
         debounce_delay = 15,
-        side = "left",
+        side = "right",
         preserve_window_proportions = false,
         number = true,
         relativenumber = true,
         signcolumn = "yes",
-        width = 30,
+        width = 36,
         -- mappings = {
         --   custom_only = false,
         --   list = {
