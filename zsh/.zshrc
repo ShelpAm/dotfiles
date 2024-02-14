@@ -2,8 +2,6 @@
 # ShelpAm's CONFIG BEGIN
 source "${ZDOTDIR}/functions.zsh"
 source "${ZDOTDIR}/aliases.zsh"
-
-# proxy
 # ShelpAm's CONFIG END 
 ################################################################################
 
