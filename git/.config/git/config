@@ -1,0 +1,19 @@
+[user]
+	name = ShelpAm
+	email = shelpam@qq.com
+	signingkey = D69BE4DA5F73C49EAE250100A73ADDFCD247D8A9
+[commit]
+	gpgsign = true
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[merge]
+	tool = nvimdiff
+[pull]
+	rebase = false
+	ff = only
+[http]
+	proxy = http://127.0.0.1:8080
+[https]
+	proxy = http://127.0.0.1:8080
