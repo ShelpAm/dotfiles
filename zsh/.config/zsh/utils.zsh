@@ -1,6 +1,6 @@
 function proxy_on {
     local proxy_host='127.0.0.1'
-    local proxy_port='8080'
+    local proxy_port='7890'
 
     local proxy_address="${proxy_host}:${proxy_port}"
     local proxy="http://${proxy_address}"
