@@ -7,9 +7,10 @@ Before using this configuration, you should first install tpm with:
 git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 ```
 If you want to change the directory to install plugins, you can modify the following line in
-`~/.config/tmux/tmux.conf`, find the line with `set -g @plugins_dir`, and modify it as below:
+`~/.config/tmux/tmux.conf`, find the line with `set-environment -g TMUX_PLUGIN_MANAGER_PATH`,
+and modify it as below:
 ```tmux
-set -g @plugins_dir '/path/to/plugins_dir'
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "/path/to/plugins_dir"
 ```
 Then, source the configuration:
 ```bash
