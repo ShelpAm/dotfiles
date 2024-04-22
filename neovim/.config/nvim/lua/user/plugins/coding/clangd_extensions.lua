@@ -85,6 +85,9 @@ return {
           border = "none",
         },
       })
+
+      local keymaps = require('user.core.keymaps')
+      keymaps.map('n', '<F2>', ':ClangdSwitchSourceHeader<CR>', { desc = 'Switch Source Header' })
     end
   }
 }

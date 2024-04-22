@@ -2,6 +2,7 @@ return {
   -- Language server supports
   {
     'neovim/nvim-lspconfig',
+    -- enabled = false,
     lazy = false,
     priority = 1,
     dependencies = {

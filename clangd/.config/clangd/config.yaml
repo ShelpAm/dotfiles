@@ -1,7 +1,7 @@
 CompileFlags:                     # Tweak the parse settings
-  Add: [-DDEBUG, -std=c++26, -stdlib=libc++, -Wall, -Wextra]
+  Add: [-std=gnu++20, -Wall, -Wextra]
   Remove: []
-  Compiler: clang++             # Change argv[0] of compile flags to `clang++`
+  Compiler: g++             # Change argv[0] of compile flags to `clang++`
 
 Index:
   Background: Build     # Disable slow background indexing of these files.
@@ -25,7 +25,7 @@ Diagnostics:
       # - readability-magic-numbers
     # CheckOptions:
     #   readability-identifier-naming.VariableCase: lower_case
-    FastCheckFilter: Strict
+    # FastCheckFilter: Strict
   UnusedIncludes: None
 
 Completion:

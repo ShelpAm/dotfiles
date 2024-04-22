@@ -1,9 +1,8 @@
 return {
   {
     'hrsh7th/nvim-cmp',
-    event = {
-      'BufEnter',
-    },
+    -- enabled = false,
+    event = { 'BufEnter', },
     dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
@@ -91,13 +90,6 @@ return {
           { name = 'cmdline' },
         })
       })
-
-      -- Insert `(` after select function or method item
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-      )
     end,
   },
 }

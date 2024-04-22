@@ -33,7 +33,7 @@ opt.relativenumber = true  -- Relative line numbers
 opt.scrolloff = 4          -- Lines of context
 opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize' }
 opt.shiftround = true      -- Round indent
-opt.shiftwidth = 4         -- Size of an indent
+opt.shiftwidth = 2         -- Size of an indent
 opt.shortmess:append { W = true, I = true, c = true }
 opt.showmode = false       -- Dont show mode since we have a statusline
 opt.showtabline = 2
@@ -49,7 +49,7 @@ opt.splitright = true    -- Put new windows right of current
 opt.swapfile = false
 opt.tabstop = 2          -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
-opt.textwidth = 140
+opt.textwidth = 80
 opt.timeout = true
 opt.timeoutlen = 100
 --opt.undodir = "$XDG_STATE_HOME/nvim/undo/"
@@ -58,58 +58,58 @@ opt.undolevels = 10000
 opt.updatetime = 200               -- Save swap file and trigger CursorHold
 opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.winminwidth = 5                -- Minimum window width
-opt.wrap = false                   -- Line wrap
+opt.wrap = true                    -- Line wrap
 
 vim.bo.autoread = true
 
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define({
-    {
-        name = "DiagnosticSignError",
-        text = "",
-        texthl = "DiagnosticSignError",
-        linehl = 'ErrorLine',
-    },
-    {
-        name = "DiagnosticSignWarn",
-        text = "",
-        texthl = "DiagnosticSignWarn",
-        linehl = 'WarningLine',
-    },
-    {
-        name = "DiagnosticSignInfo",
-        text = "",
-        texthl = "DiagnosticSignInfo",
-        linehl = 'InfoLine',
-    },
-    {
-        name = "DiagnosticSignHint",
-        text = "",
-        texthl = "DiagnosticSignHint",
-        linehl = 'HintLine',
-    },
+  {
+    name = "DiagnosticSignError",
+    text = "",
+    texthl = "DiagnosticSignError",
+    linehl = 'ErrorLine',
+  },
+  {
+    name = "DiagnosticSignWarn",
+    text = "",
+    texthl = "DiagnosticSignWarn",
+    linehl = 'WarningLine',
+  },
+  {
+    name = "DiagnosticSignInfo",
+    text = "",
+    texthl = "DiagnosticSignInfo",
+    linehl = 'InfoLine',
+  },
+  {
+    name = "DiagnosticSignHint",
+    text = "",
+    texthl = "DiagnosticSignHint",
+    linehl = 'HintLine',
+  },
 })
 
 -- make zsh files recognized as sh for bash-ls & treesitter
 vim.filetype.add {
-    extension = {
-        hpp = "cpp",
-        ixx = "cpp",
-        zsh = "sh",
-        sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
-    },
-    filename = {
-        [".zshrc"] = "sh",
-        [".zshenv"] = "sh",
-        ["version.h.in"] = "cmake",
-    },
+  extension = {
+    hpp = "cpp",
+    ixx = "cpp",
+    zsh = "sh",
+    sh = "sh",     -- force sh-files with zsh-shebang to still get sh as filetype
+  },
+  filename = {
+    [".zshrc"] = "sh",
+    [".zshenv"] = "sh",
+    ["version.h.in"] = "cmake",
+  },
 }
 
 -- vim.cmd('highlight CursorLine guifg= guibg=#f0f2f5')
 
 if vim.fn.has('nvim-0.9.0') == 1 then
-    opt.splitkeep = 'screen'
-    opt.shortmess:append { C = true }
+  opt.splitkeep = 'screen'
+  opt.shortmess:append { C = true }
 end
 
 -- Fix markdown indentation settings

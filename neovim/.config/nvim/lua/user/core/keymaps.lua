@@ -75,7 +75,7 @@ map('n', '<leader>s', function()
 end, { desc = '[S]ource current file' })
 
 map('n', '<F5>', function()
-  vim.cmd([[normal ]])
+  vim.cmd([[CompetiTest run]])
 end, { desc = 'Run current file' })
 
 return M

@@ -19,6 +19,7 @@ ensure_parent_dir "${HISTFILE}"
 setopt EXTENDED_HISTORY
 setopt HIST_VERIFY          # Reload results of history expansion before executing
 # setopt HIST_IGNORE_ALL_DUPS # Do not enter duplicates into history
+setopt HIST_IGNORE_DUPS # Remove continuous duplicates
 setopt HIST_IGNORE_SPACE    # Ignore command lines with leading spaces
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY   # Append the history list to the history file, rather than replace it.

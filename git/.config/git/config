@@ -11,7 +11,7 @@
 [merge]
 	tool = nvimdiff
 [pull]
-	rebase = false
+	rebase = true
 	ff = only
 [http]
 	proxy = http://127.0.0.1:7890

@@ -1,8 +1,8 @@
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
     event = 'BufEnter',
-    -- enabled = false,
     config = function()
       require("ibl").setup({
         debounce = 100,

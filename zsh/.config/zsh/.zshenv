@@ -7,13 +7,17 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
 # export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}" # Not required to have a default value
 
 typeset -U path
-path=(/sbin ~/.local/bin ~/competitive_programming $path)
+path=(/sbin ~/.local/bin $path)
 
 typeset -U mailpath
 mailpath=($mailpath)
 
 export EDITOR=nvim
 export VISUAL=nvim
+
+# for Wayland
+GBM_BACKEND=nvidia-drm
+__GLX_VENDOR_LIBRARY_NAME=nvidia
 
 # input method
 # now I'm using ibus
