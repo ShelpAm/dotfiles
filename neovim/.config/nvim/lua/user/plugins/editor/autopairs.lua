@@ -3,7 +3,7 @@ return {
     "windwp/nvim-autopairs",
     -- enabled = false,
     event = { 'BufEnter' },
-    deps = { 'hrsh7th/nvim-cmp' },
+    dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()
       require("nvim-autopairs").setup()
 

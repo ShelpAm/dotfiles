@@ -78,4 +78,8 @@ map('n', '<F5>', function()
   vim.cmd([[CompetiTest run]])
 end, { desc = 'Run current file' })
 
+map('n', '<F6>', function()
+  vim.cmd([[%yank]])
+end, { desc = 'Copy current file' })
+
 return M
