@@ -1,5 +1,13 @@
 # Personal Tmux Configuration
 
+## Prerequisite
+```bash
+apt install entr
+dnf install entr
+yum install entr
+...
+```
+
 ## Installation
 
 Before using this configuration, you should first install tpm with:

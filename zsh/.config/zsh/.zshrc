@@ -33,10 +33,10 @@ setopt NO_BEEP
 setopt INTERACTIVE_COMMENTS # Allow comments in interactive mode
 
 setopt ZLE                  # Use the zsh line editor.
-# bindkey -v                  # Enable vi mode for (i don't even know :()
+bindkey -v                  # Enable vi mode for (i don't even know :()
 
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
+# zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+# zinit light sindresorhus/pure
 
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
@@ -70,19 +70,21 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-print() {
-  [ 0 -eq $# -a "prompt_pure_precmd" = "${funcstack[-1]}" ] || builtin print "$@";
-}
-
-# Theme
-fpath+=($HOME/.local/share/zinit/plugins/sindresorhus---pure/)
-autoload -U promptinit && promptinit
-# PURE_PROMPT_SYMBOL="%#"
-PURE_CMD_MAX_EXEC_TIME=10
-PURE_POWER_MODE=fancy
-zstyle :prompt:pure:path color blue
-zstyle ':prompt:pure:prompt:*' color cyan # change the color for both `prompt:success` and `prompt:error`
-zstyle :prompt:pure:git:stash show yes # turn on git stash status
-prompt pure
+# # Theme
+# print() {
+#   [ 0 -eq $# -a "prompt_pure_precmd" = "${funcstack[-1]}" ] || builtin print "$@";
+# }
+# fpath+=($HOME/.local/share/zinit/plugins/sindresorhus---pure/)
+# autoload -U promptinit && promptinit
+# # PURE_PROMPT_SYMBOL="%#"
+# PURE_CMD_MAX_EXEC_TIME=10
+# PURE_POWER_MODE=fancy
+# zstyle :prompt:pure:path color green
+# zstyle ':prompt:pure:prompt:*' color cyan # change the color for both `prompt:success` and `prompt:error`
+# zstyle :prompt:pure:git:stash show yes # turn on git stash status
+# zstyle :prompt:pure:user show yes
+# prompt pure
 
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+
+eval "$(starship init zsh)"

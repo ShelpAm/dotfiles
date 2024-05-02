@@ -21,7 +21,7 @@ return {
         auto_install = true,
         -- List of parsers to ignore installing (for "all")
         ignore_install = {
-          'lua'
+          -- 'lua'
         },
         highlight = {
           -- `false` will disable the whole extension

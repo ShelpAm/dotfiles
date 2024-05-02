@@ -1,11 +1,10 @@
 local opt = vim.opt
-
 opt.autoread = true
 opt.autowrite = false    -- Enable auto write
 opt.autowriteall = false -- Enable auto write all the files
-opt.background = 'dark'
+opt.background = 'light'
 opt.binary = true
-opt.clipboard = "unnamedplus" -- Sync with system clipboard
+opt.clipboard = 'unnamedplus' -- Sync with system clipboard
 -- opt.colorcolumn = { '+0' }
 opt.cmdheight = 1
 opt.completeopt = 'menu,menuone,noselect'
@@ -96,7 +95,7 @@ vim.filetype.add {
     hpp = "cpp",
     ixx = "cpp",
     zsh = "sh",
-    sh = "sh",     -- force sh-files with zsh-shebang to still get sh as filetype
+    sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
   },
   filename = {
     [".zshrc"] = "sh",
