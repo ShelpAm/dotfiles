@@ -1,7 +1,7 @@
 return {
   {
     "folke/neodev.nvim",
-    lazy = false,
+    event = 'VeryLazy',
     priority = 10,
     opts = {}
   }

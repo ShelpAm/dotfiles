@@ -1,40 +1,57 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    event = 'VeryLazy',
     enable = true,
     config = function()
-      local dap = require('dap')
-      dap.adapters.lldb = {
-        type = 'executable',
-        command = '/usr/bin/lldb-dap-19', -- adjust as needed, must be absolute path
-        name = 'lldb'
-      }
+      local get_competitive_program = function()
+        -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        local filename = vim.api.nvim_buf_get_name(0)
+        filename = string.reverse(filename)
+        filename = string.reverse(
+          string.sub(
+            filename,
+            string.find(filename, '%.') + 1,
+            string.len(filename)))
+        return filename
+      end
 
+      local dap = require("dap")
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        args = { "-i", "dap" }
+      }
       dap.configurations.cpp = {
         {
-          name = 'Launch',
-          type = 'lldb',
-          request = 'launch',
-          program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-          end,
-          cwd = '${workspaceFolder}',
-          stopOnEntry = false,
-          args = {},
+          name = "Launch",
+          type = "gdb",
+          request = "launch",
+          program = get_competitive_program,
+          cwd = "${workspaceFolder}",
+          stopAtBeginningOfMainSubprogram = false,
         },
       }
+      vim.keymap.set('n', '<F9>', function()
+        require('dap').continue()
+      end)
+      vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+      vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+      vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+      -- vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+      vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
     end
   },
   {
     "rcarriga/nvim-dap-ui",
-    enabled = true,
-    dependencies = {
-      "mfussenegger/nvim-dap",
-    },
+    event = 'VeryLazy',
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     config = function()
-      require("dapui").setup()
-
       local dap, dapui = require("dap"), require("dapui")
+      dapui.setup()
+      -- dap.listeners.before.run.dapui_config = function()
+      --   dapui.open()
+      -- end
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
       end
@@ -48,6 +65,5 @@ return {
         dapui.close()
       end
     end
-  },
-  {}
+  }
 }
