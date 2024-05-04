@@ -12,7 +12,7 @@ where `DIR_NAME...` is target directory(es) to be extractd from the stow package
 
 To extract all configurations, use:
 ```bash
-stow clangd git kitty neovim tmux wget zsh
+stow clangd gdb git kitty neovim tmux wget zsh
 ```
 
 ## tmux
