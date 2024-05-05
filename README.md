@@ -2,7 +2,7 @@ My dotfiles for consistent cross-platform experience, managed by GNU stow.
 
 ## Bootstrapping
 ```bash
-curl placeholder | bash
+curl https://raw.githubusercontent.com/ShelpAm/dotfiles/main/bootstrap.sh | bash
 ```
 
 ## tmux
