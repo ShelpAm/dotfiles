@@ -1,5 +1,5 @@
 CompileFlags:                     # Tweak the parse settings
-  Add: [-std=gnu++20, -Wall, -Wextra]
+  Add: [-Wall, -Wextra]
   Remove: []
   Compiler: g++             # Change argv[0] of compile flags to `clang++`
 

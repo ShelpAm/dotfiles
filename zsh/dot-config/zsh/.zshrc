@@ -35,9 +35,6 @@ setopt INTERACTIVE_COMMENTS # Allow comments in interactive mode
 setopt ZLE                  # Use the zsh line editor.
 bindkey -v                  # Enable vi mode for (i don't even know :()
 
-# zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-# zinit light sindresorhus/pure
-
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
@@ -46,7 +43,9 @@ zinit wait lucid for \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
-zinit snippet OMZP::sudo/sudo.plugin.zsh
+zinit snippet OMZL::functions.zsh
+zinit snippet OMZP::web-search
+zinit snippet OMZP::sudo
 
 # Use modern completion system
 autoload -Uz compinit && compinit
@@ -71,6 +70,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # # Theme
+# zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+# zinit light sindresorhus/pure
 # print() {
 #   [ 0 -eq $# -a "prompt_pure_precmd" = "${funcstack[-1]}" ] || builtin print "$@";
 # }
@@ -87,4 +88,5 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
 
+# Theme, starship
 eval "$(starship init zsh)"
