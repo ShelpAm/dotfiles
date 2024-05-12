@@ -4,6 +4,7 @@ return {
     event = 'BufEnter',
     dependencies = 'MunifTanjim/nui.nvim',
     config = function()
+      local competitive_programming_dir = os.getenv("COMPETITIVE_PROGRAMMING_DIR")
       require('competitest').setup {
         local_config_file_name = ".competitest.lua",
 
@@ -118,14 +119,14 @@ return {
 
         companion_port = 27121,
         receive_print_message = true,
-        template_file = '$(HOME)/competitive-programming/templates/main.$(FEXT)',
+        template_file = competitive_programming_dir .. "/templates/main.$(FEXT)",
         evaluate_template_modifiers = true,
         date_format = "%c",
         received_files_extension = "cpp",
         -- received_problems_path = "$(CWD)/main.$(FEXT)",
-        received_problems_path = "$(HOME)/competitive-programming/competitest/$(JUDGE)/$(CONTEST)/$(PROBLEM)/main.$(FEXT)",
+        received_problems_path = competitive_programming_dir .. "/competitest/$(JUDGE)/$(CONTEST)/$(PROBLEM)/main.$(FEXT)",
         received_problems_prompt_path = false,
-        received_contests_directory = "$(HOME)/competitive-programming/competitest/$(JUDGE)/$(CONTEST)",
+        received_contests_directory = competitive_programming_dir .. "/competitest/$(JUDGE)/$(CONTEST)",
         received_contests_problems_path = "$(PROBLEM)/main.$(FEXT)",
         received_contests_prompt_directory = false,
         received_contests_prompt_extension = false,

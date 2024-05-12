@@ -49,3 +49,6 @@ ensure_parent_dir "${LESSHISTFILE}"
 # wget
 export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 ensure_parent_dir "${WGETRC}"
+
+# competitive-programming
+export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/devel/competitive-programming"
