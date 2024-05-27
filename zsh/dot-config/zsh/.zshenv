@@ -17,7 +17,7 @@ COLORTERM=truecolor
 export EDITOR=nvim
 export VISUAL=nvim
 
-# # for Wayland
+# # Graphic card for Wayland
 # GBM_BACKEND=nvidia-drm
 # __GLX_VENDOR_LIBRARY_NAME=nvidia
 
@@ -52,3 +52,14 @@ ensure_parent_dir "${WGETRC}"
 
 # competitive-programming
 export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/devel/competitive-programming"
+
+
+# -- IME setting --
+#
+# My configuration:
+# See: https://fcitx-im.org/wiki/Note_for_GNOME_Later_than_3.6
+#
+# Useful links:
+# See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland
+# See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Per-window_input_method_state
+. "$HOME/.cargo/env"

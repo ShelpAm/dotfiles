@@ -26,6 +26,9 @@ M.servers = {
   -- 'pylsp',
   'pyright',
   'quick_lint_js',
+  'ruff',
+  'ruff_lsp',
+  'rust_analyzer',
 }
 
 return M

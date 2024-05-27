@@ -1,6 +1,7 @@
 return {
   {
     'marko-cerovac/material.nvim',
+    enabled = false,
     lazy = false,
     opts = {},
     config = function()

@@ -36,7 +36,7 @@ return {
           folders_first = true,
         },
         view = {
-          centralize_selection = true,
+          centralize_selection = false,
           cursorline = true,
           debounce_delay = 15,
           side = "right",
@@ -44,7 +44,7 @@ return {
           number = true,
           relativenumber = true,
           signcolumn = "yes",
-          width = 36,
+          -- width = 36,
           -- mappings = {
           --   custom_only = false,
           --   list = {
