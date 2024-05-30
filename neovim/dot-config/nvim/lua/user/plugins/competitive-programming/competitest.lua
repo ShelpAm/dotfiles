@@ -119,7 +119,7 @@ return {
 
         companion_port = 27121,
         receive_print_message = true,
-        template_file = competitive_programming_dir .. "/templates/main.$(FEXT)",
+        template_file = "$(HOME)/Templates/main.$(FEXT)",
         evaluate_template_modifiers = true,
         date_format = "%c",
         received_files_extension = "cpp",

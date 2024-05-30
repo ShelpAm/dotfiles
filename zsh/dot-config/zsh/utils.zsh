@@ -1,7 +1,7 @@
+# Note that dnf won't use this proxy unless you set them up manually.
 function proxy_on {
   local proxy_host='127.0.0.1'
   local proxy_port='7890'
-
   local proxy_address="${proxy_host}:${proxy_port}"
   local proxy="http://${proxy_address}"
   export http_proxy=$proxy https_proxy=$proxy ftp_proxy=$proxy rsync_proxy=$proxy all_proxy=$proxy
@@ -31,19 +31,23 @@ function proxy_off {
   # For apt
   # echo 'Run `sudo echo "" > /etc/apt/apt.conf.d/proxy.conf` to disable proxy for apt.'
 }
-
 function reload {
   exec zsh
 }
-
 function config {
   nvim "$ZDOTDIR/.zshrc" && reload
 }
-
 function ensure_parent_dir {
   [ ! -e "$1" ] && mkdir -p "$(dirname $1)"
 }
-
 function ensure_dir {
   [ ! -d "$1" ] && mkdir -p "$1"
+}
+function turn_on_proxy_with_iphone {
+  nmcli connection up ShepAm
+  proxy_on
+}
+function turn_off_proxy_with_iphone {
+  proxy_off
+  nmcli connection up ACS_6.1G
 }
