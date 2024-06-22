@@ -7,7 +7,7 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
 #export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}" # Not required to have a default value
 
 typeset -U path
-path=($path ~/.local/bin ~/.local/share/python/bin)
+path=($path ~/.local/bin ~/.local/share/python/bin ~/.local/opt/Discord)
 
 typeset -U mailpath
 mailpath=($mailpath)
@@ -51,7 +51,7 @@ export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 ensure_parent_dir "${WGETRC}"
 
 # competitive-programming
-export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/devel/competitive-programming"
+export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-programming"
 
 
 # -- IME setting --
