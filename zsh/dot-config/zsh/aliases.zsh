@@ -5,3 +5,5 @@ alias rm='trash'
 
 # alias -s md=$BROWSER
 alias -s pdf='firefox'
+alias -s png='xdg-open'
+alias -s jpg='xdg-open'
