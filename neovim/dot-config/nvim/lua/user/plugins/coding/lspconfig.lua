@@ -1,9 +1,8 @@
 return {
-  -- Language server supports
+  -- Language server support
   {
     'neovim/nvim-lspconfig',
     -- enabled = false,
-    lazy = false,
     priority = 1,
     dependencies = {
       'williamboman/mason-lspconfig.nvim'

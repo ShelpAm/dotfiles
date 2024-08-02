@@ -18,16 +18,15 @@ end
 
 --- @hint Use :h lspconfig-all to find out more lsp servers.
 M.servers = {
+  'asm_lsp',
   'bashls',
   'clangd',
   'cmake',
   -- 'csharp_ls',
   'lua_ls',
-  -- 'pylsp',
   'pyright',
   'quick_lint_js',
   'ruff',
-  'ruff_lsp',
   'rust_analyzer',
 }
 

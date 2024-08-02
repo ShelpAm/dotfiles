@@ -9,7 +9,7 @@ require('lazy').setup({
 }, {
   root = vim.fn.stdpath('data') .. '/lazy', -- directory where plugins will be installed
   defaults = {
-    lazy = true,                            -- should plugins be lazy-loaded?
+    lazy = false,                           -- should plugins be lazy-loaded?
     -- version = '*',
     -- version = '*', -- enable this to try installing the latest stable versions of plugins
   },

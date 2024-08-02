@@ -1,13 +1,30 @@
 source "${ZDOTDIR}/utils.zsh"
 
+# --- XDG Base Directory Specification ---
+# BASICS
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
 #export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}" # Not required to have a default value
+# LESS
+export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
+ensure_parent_dir "${LESSHISTFILE}"
+# NPM
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+ensure_parent_dir "${NPM_CONFIG_USERCONFIG}"
+# PYTHON
+# export PYTHONSTARTUP="${XDG_DATA_HOME}/python/startup.py"
+export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
+export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
+export PYTHONHISTFILE="${XDG_STATE_HOME}/python/history"
+# WGET
+export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
+ensure_parent_dir "${WGETRC}"
+
 
 typeset -U path
-path=($path ~/.local/bin ~/.local/share/python/bin ~/.local/opt/Discord)
+path=($path ~/.local/bin ~/.local/share/python/bin)
 
 typeset -U mailpath
 mailpath=($mailpath)
@@ -21,13 +38,8 @@ export VISUAL=nvim
 # GBM_BACKEND=nvidia-drm
 # __GLX_VENDOR_LIBRARY_NAME=nvidia
 
-# Python
-# export PYTHONSTARTUP="${XDG_DATA_HOME}/python/startup.py"
-export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
-export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
-export PYTHONHISTFILE="${XDG_STATE_HOME}/python/history"
 
-# GPG
+# GPG (Note: this may mess things up, so I choose to keep everything default.)
 # export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 # ensure_dir "${GNUPGHOME}"
 # unset SSH_AGENT_PID
@@ -37,18 +49,6 @@ export PYTHONHISTFILE="${XDG_STATE_HOME}/python/history"
 # fi
 # export GPG_TTY=$(tty)
 # gpg-connect-agent updatestartuptty /bye >/dev/null
-
-# NPM
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-ensure_parent_dir "${NPM_CONFIG_USERCONFIG}"
-
-# less
-export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
-ensure_parent_dir "${LESSHISTFILE}"
-
-# wget
-export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
-ensure_parent_dir "${WGETRC}"
 
 # competitive-programming
 export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-programming"
@@ -62,4 +62,14 @@ export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-progr
 # Useful links:
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Per-window_input_method_state
+
 . "$HOME/.cargo/env"
+
+# Proxy settings
+local proxy_host='127.0.0.1'
+local proxy_port='7890'
+local proxy_address="${proxy_host}:${proxy_port}"
+local proxy="http://${proxy_address}"
+
+# QT
+export QT_QPA_PLATFORM=wayland

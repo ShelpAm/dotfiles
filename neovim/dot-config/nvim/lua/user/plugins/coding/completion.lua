@@ -27,7 +27,7 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ['<C-Space>'] = cmp.mapping.complete({}),
+          ['<C-C>'] = cmp.mapping.complete({}),
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
           ['<C-E>'] = cmp.mapping.abort(),
           ['<C-B>'] = cmp.mapping.scroll_docs(-4),
@@ -35,10 +35,10 @@ return {
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-              -- elseif has_words_before() then
-              --   cmp.complete()
+              -- elseif luasnip.expand_or_jumpable() then
+              --   luasnip.expand_or_jump()
+              --   -- elseif has_words_before() then
+              --   --   cmp.complete()
             else
               fallback()
             end

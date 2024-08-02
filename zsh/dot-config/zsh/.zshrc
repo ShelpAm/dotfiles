@@ -2,6 +2,7 @@
 # ShelpAm's CONFIG BEGIN
 source "${ZDOTDIR}/utils.zsh"
 source "${ZDOTDIR}/aliases.zsh"
+source "${ZDOTDIR}/proxy.zsh"
 # ShelpAm's CONFIG END 
 ################################################################################
 
