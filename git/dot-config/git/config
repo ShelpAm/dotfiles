@@ -1,7 +1,7 @@
 [user]
 	name = ShelpAm
 	email = shelpam@qq.com
-	signingkey = D0719DAC6C5919B229D36EE7EBD558050A32D5D3
+	signingkey = /home/shelpam/.ssh/id_ed25519.pub
 [commit]
 	gpgsign = true
 [core]
@@ -23,6 +23,18 @@
     cmd = kitten diff $LOCAL $REMOTE
 [difftool "kitty.gui"]
     cmd = kitten diff $LOCAL $REMOTE
+[rerere]
+	enabled = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/shelpam/.ssh/allowed_signers
+[tag]
+	gpgsign = true
+[maintenance]
+	repo = /home/shelpam/Documents/projects/competitive-programming
+	repo = /home/shelpam/Documents/projects/c_project
+	repo = /home/shelpam/Documents/projects/learn-deep-learning
 [http]
 	proxy = http://127.0.0.1:7890
 [https]
