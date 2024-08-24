@@ -13,7 +13,7 @@ typeset -A ZINIT           # Initial Zinit's hash definition
 source $ZINIT_BIN_DIR/zinit.zsh
 
 ## History
-HISTSIZE=1000000
+HISTSIZE=100000000
 SAVEHIST=${HISTSIZE}
 HISTFILE="${XDG_STATE_HOME}/zsh/history"
 ensure_parent_dir "${HISTFILE}"
@@ -94,3 +94,12 @@ ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
 
 # Theme, starship
 eval "$(starship init zsh)"
+
+ # Start ssh-agent for every session, as it saves ssh passphrase for us.
+# eval "$(ssh-agent)"
+# ssh-add
+#
+#  Not using it because each time I started a sessino, it prompts to ask for
+# passphrass, which is annoying especially when I don't want to use ssh-related
+# features
+

@@ -13,10 +13,12 @@ function M.default_on_attach( --[[client]] _, bufnr)
   keymaps.map('n', 'gi', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplemetation', unpack(bufopts) })
   keymaps.map('n', 'gr', vim.lsp.buf.references, { desc = '[G]oto [R]eference', unpack(bufopts) })
   keymaps.map('n', '<leader>d', '<Cmd>Telescope lsp_document_symbols<CR>', bufopts)
-  keymaps.map('n', '<leader>K', vim.lsp.buf.hover, bufopts)
+  -- There has been `K` for hover, so disabling this
+  -- keymaps.map('n', '<leader>K', vim.lsp.buf.hover, bufopts)
 end
 
---- @hint Use :h lspconfig-all to find out more lsp servers.
+--- @hint Use :h lspconfig-all to find out more lsp servers. Reference this:
+--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 M.servers = {
   'asm_lsp',
   'bashls',
@@ -24,8 +26,10 @@ M.servers = {
   'cmake',
   -- 'csharp_ls',
   'lua_ls',
+  -- 'marksman',
   'pyright',
   'quick_lint_js',
+  'remark_ls',
   'ruff',
   'rust_analyzer',
 }

@@ -72,4 +72,4 @@ local proxy_address="${proxy_host}:${proxy_port}"
 local proxy="http://${proxy_address}"
 
 # QT
-export QT_QPA_PLATFORM=wayland
+# export QT_QPA_PLATFORM=wayland

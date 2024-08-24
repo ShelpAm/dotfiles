@@ -18,7 +18,7 @@ return {
       -- -- set termguicolors to enable highlight groups
       -- vim.opt.termguicolors = true
 
-      require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
+      require("nvim-tree").setup {
         auto_reload_on_write = true,
         disable_netrw = true,
         hijack_cursor = true,
@@ -39,12 +39,15 @@ return {
           centralize_selection = false,
           cursorline = true,
           debounce_delay = 15,
-          side = "right",
-          preserve_window_proportions = false,
-          number = true,
-          relativenumber = true,
+          side = "left",
+          preserve_window_proportions = true,
+          number = false,
+          relativenumber = false,
           signcolumn = "yes",
-          -- width = 36,
+          width = {
+            min = 30,
+            max = 36
+          },
           -- mappings = {
           --   custom_only = false,
           --   list = {
@@ -65,13 +68,14 @@ return {
           },
         },
         renderer = {
-          add_trailing = true,
-          group_empty = false,
-          highlight_git = true,
+          add_trailing = false,
+          group_empty = true,
           full_name = false,
-          highlight_opened_files = "none",
+          highlight_diagnostics = "none",
+          highlight_git = "name",
           highlight_modified = "none",
-          root_folder_label = ":~:s?$?/..?",
+          highlight_opened_files = "none",
+          hidden_display = "none",
           indent_width = 2,
           indent_markers = {
             enable = false,
@@ -123,7 +127,14 @@ return {
               },
             },
           },
-          special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+          root_folder_label = ":~:s?$?/..?",
+          special_files = {
+            -- ".gitignore",
+            "Cargo.toml",
+            "Makefile",
+            "README.md",
+            "readme.md",
+          },
           symlink_destination = true,
         },
         hijack_directories = {
@@ -140,7 +151,7 @@ return {
           args = {},
         },
         diagnostics = {
-          enable = true,
+          enable = false,
           show_on_dirs = true,
           show_on_open_dirs = false,
           debounce_delay = 50,
@@ -256,7 +267,7 @@ return {
             watcher = false,
           },
         },
-      } -- END_DEFAULT_OPTS}
+      }
     end,
   }
 }

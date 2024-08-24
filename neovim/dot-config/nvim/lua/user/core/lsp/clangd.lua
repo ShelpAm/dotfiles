@@ -1,6 +1,6 @@
 local config = require('user.core.lsp.config')
 
-require('lspconfig').clangd.setup({
+require('lspconfig').clangd.setup {
   -- Add additional capabilities supported by nvim-cmp
   capabilities = require('cmp_nvim_lsp').default_capabilities(),
   on_attach = config.default_on_attach,
@@ -8,10 +8,17 @@ require('lspconfig').clangd.setup({
     "/bin/clangd",
     "-j=8",
     -- "--completion-style=detailed",
-    "--header-insertion=never",
+    "-header-insertion=never",
     -- "--pch-storage=memory",
     -- "--header-insertion-decorators",
     -- "--print-options",
     -- "--log=verbose"
   },
-})
+  root_dir = require('lspconfig').util.root_pattern(
+    'build/compile_commands.json',
+    '.clangd',
+    '.clang-tidy',
+    '.clang-format',
+    '.git'
+  ),
+}

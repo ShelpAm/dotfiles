@@ -66,24 +66,28 @@ vim.fn.sign_define({
   {
     name = "DiagnosticSignError",
     text = "",
+    -- text = "", -- Use empty text to hide the signs in sign column
     texthl = "DiagnosticSignError",
     linehl = 'ErrorLine',
   },
   {
     name = "DiagnosticSignWarn",
-    text = "",
+    -- text = "",
+    text = "", -- Same as above
     texthl = "DiagnosticSignWarn",
     linehl = 'WarningLine',
   },
   {
     name = "DiagnosticSignInfo",
-    text = "",
+    -- text = "",
+    text = "", -- Same as above
     texthl = "DiagnosticSignInfo",
     linehl = 'InfoLine',
   },
   {
     name = "DiagnosticSignHint",
-    text = "",
+    -- text = "",
+    text = "", -- Same as above
     texthl = "DiagnosticSignHint",
     linehl = 'HintLine',
   },
@@ -101,6 +105,7 @@ vim.filetype.add {
     [".zshrc"] = "sh",
     [".zshenv"] = "sh",
     ["version.h.in"] = "cmake",
+    ["xmake.lua"] = "xmake",
   },
 }
 

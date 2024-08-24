@@ -27,6 +27,7 @@
 	enabled = true
 [gpg]
 	format = ssh
+	program = ssh
 [gpg "ssh"]
 	allowedSignersFile = /home/shelpam/.ssh/allowed_signers
 [tag]
@@ -35,7 +36,4 @@
 	repo = /home/shelpam/Documents/projects/competitive-programming
 	repo = /home/shelpam/Documents/projects/c_project
 	repo = /home/shelpam/Documents/projects/learn-deep-learning
-[http]
-	proxy = http://127.0.0.1:7890
-[https]
-	proxy = http://127.0.0.1:7890
+	repo = /home/shelpam/Documents/projects/little-sb

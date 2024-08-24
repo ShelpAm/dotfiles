@@ -1,7 +1,7 @@
 return {
   {
     'numToStr/Comment.nvim',
-    enabled = false,
+    -- enabled = false,
     event = {
       'BufEnter'
     },

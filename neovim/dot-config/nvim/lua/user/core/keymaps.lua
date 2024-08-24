@@ -25,17 +25,17 @@ map('n', '<Leader>w', '<Cmd>w<CR>', { desc = '[W]rite Buffer' })
 map({ 'i', 'v', 'n', 's' }, '<C-S>', '<Cmd>w<CR><Esc>', { desc = 'Save file' })
 -- map('n', '<Leader>q', '<Cmd>q<CR>', { desc = '[Q]uit' })
 
--- Move to window using the <ctrl> hjkl keys
-map('n', '<C-h>', '<C-w>h', { desc = 'Go to left window' })
-map('n', '<C-j>', '<C-w>j', { desc = 'Go to lower window' })
-map('n', '<C-k>', '<C-w>k', { desc = 'Go to upper window' })
-map('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
+-- -- Move to window using the <Ctrl> hjkl keys
+-- map('n', '<C-h>', '<C-w>h', { desc = 'Go to left window' })
+-- map('n', '<C-j>', '<C-w>j', { desc = 'Go to lower window' })
+-- map('n', '<C-k>', '<C-w>k', { desc = 'Go to upper window' })
+-- map('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
 
 -- Resize with arrows
-map('n', '<C-Up>', '<Cmd>resize +1<CR>', { desc = '' })
-map('n', '<C-Down>', '<Cmd>resize -1<CR>', { desc = '' })
-map('n', '<C-Left>', '<Cmd>vertical resize +1<CR>', { desc = '' })
-map('n', '<C-Right>', '<Cmd>vertical resize -1<CR>', { desc = '' })
+map('n', '<C-Up>', '<Cmd>resize -1<CR>', { desc = '' })
+map('n', '<C-Down>', '<Cmd>resize +1<CR>', { desc = '' })
+map('n', '<C-Left>', '<Cmd>vertical resize -1<CR>', { desc = '' })
+map('n', '<C-Right>', '<Cmd>vertical resize +1<CR>', { desc = '' })
 
 -- Better buffer navigation
 map('n', '<S-h>', '<Cmd>bp<CR>', { desc = 'Prev buffer' })
@@ -79,10 +79,10 @@ end, { desc = '[S]ource current file' })
 
 -- map('n', '<F2>', '<Cmd>ClangdSwitchSourceHeader<CR>', { desc = 'Switch Source Header' })
 
-map('n', '<F5>', function() vim.cmd([[CompetiTest run]]) end,
-  { desc = 'Run current file' })
+-- Function keys
+map('n', '<F5>', function() vim.cmd([[CompetiTest run]]) end, { desc = 'Run current file' })
+map('n', '<F6>', function() vim.cmd([[%yank]]) end, { desc = 'Copy current buffer' })
 
-map('n', '<F6>', function() vim.cmd([[%yank]]) end,
-  { desc = 'Copy current buffer' })
+map({ 'n' }, "<Leader>rp", "<Cmd>CompetiTest receive problem<Cr>", { desc = '[R]eceive [P]roblem' })
 
 return M

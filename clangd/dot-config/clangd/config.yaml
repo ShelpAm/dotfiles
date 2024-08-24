@@ -1,5 +1,5 @@
 CompileFlags:                     # Tweak the parse settings
-  Add: [-Wall, -Wextra, -std=c++2c]
+  Add: [-Wall, -Wextra, -std=c++26, -stdlib=libc++]
   Remove: []
   Compiler: clang++             # Change argv[0] of compile flags to `clang++`
 
@@ -34,6 +34,8 @@ Diagnostics:
       readability-identifier-naming.VariableCase: lower_case
     FastCheckFilter: Loose
   UnusedIncludes: Strict
+  Includes:
+    AnalyzeAngledIncludes: Yes
 
 Completion:
   AllScopes: No

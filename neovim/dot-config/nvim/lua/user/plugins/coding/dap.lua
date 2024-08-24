@@ -1,8 +1,8 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    enabled = false,
     event = 'VeryLazy',
-    enable = true,
     config = function()
       local get_competitive_program = function()
         -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
@@ -44,6 +44,7 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
+    enabled = false,
     event = 'VeryLazy',
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     config = function()

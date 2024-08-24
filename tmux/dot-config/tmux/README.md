@@ -1,6 +1,8 @@
 # Personal Tmux Configuration
 
 ## Prerequisite
+
+Used for configuration file watching
 ```bash
 apt install entr
 dnf install entr
