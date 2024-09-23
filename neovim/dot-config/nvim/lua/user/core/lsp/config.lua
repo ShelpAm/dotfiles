@@ -21,10 +21,14 @@ end
 --- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 M.servers = {
   'asm_lsp',
+  -- 'ast_grep',
   'bashls',
   'clangd',
   'cmake',
   -- 'csharp_ls',
+  'gopls',
+  'html',
+  'java_language_server',
   'lua_ls',
   -- 'marksman',
   'pyright',

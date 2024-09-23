@@ -9,6 +9,10 @@ dnf install entr
 yum install entr
 ...
 ```
+Run this for 'ofirgall/tmux-window-name'
+```sh
+python3 -m pip install --user libtmux
+```
 
 ## Installation
 

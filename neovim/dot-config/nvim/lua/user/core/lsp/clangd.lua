@@ -6,7 +6,7 @@ require('lspconfig').clangd.setup {
   on_attach = config.default_on_attach,
   cmd = {
     "/bin/clangd",
-    "-j=8",
+    -- "-j=8",
     -- "--completion-style=detailed",
     "-header-insertion=never",
     -- "--pch-storage=memory",
@@ -14,11 +14,4 @@ require('lspconfig').clangd.setup {
     -- "--print-options",
     -- "--log=verbose"
   },
-  root_dir = require('lspconfig').util.root_pattern(
-    'build/compile_commands.json',
-    '.clangd',
-    '.clang-tidy',
-    '.clang-format',
-    '.git'
-  ),
 }

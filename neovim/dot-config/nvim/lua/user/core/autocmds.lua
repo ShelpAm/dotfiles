@@ -19,3 +19,36 @@ autocmd('BufWritePre', {
     end
   end,
 })
+
+local uv = vim.loop
+autocmd({ 'VimEnter', 'VimLeave' }, {
+  callback = function()
+    if vim.env.TMUX_PLUGIN_MANAGER_PATH then
+      uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. '/tmux-window-name/scripts/rename_session_windows.py', {})
+    end
+  end,
+})
+
+-- Turn off statuscolumn for alpha and lazy
+local function contains(container, element)
+  for _, e in ipairs(container) do
+    if e == element then
+      return true
+    end
+  end
+end
+local off_statuscolumn = { 'alpha', 'lazy' }
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = off_statuscolumn,
+  callback = function()
+    vim.o.statuscolumn = ''
+  end
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = '*',
+  callback = function()
+    if not contains(off_statuscolumn, vim.bo.filetype) then
+      vim.o.statuscolumn = '%C%s%=%{v:relnum?v:relnum:v:lnum}  '
+    end
+  end
+})

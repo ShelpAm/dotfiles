@@ -1,1 +1,1 @@
-unset http_proxy https_proxy ftp_proxy rsync_proxy all_proxy HTTP_PROXY HTTPS_PROXY FTP_PROXY RSYNC_PROXY ALL_PROXY
+export http_proxy="$proxy" https_proxy="$proxy" ftp_proxy="$proxy" rsync_proxy="$proxy" all_proxy="$proxy"

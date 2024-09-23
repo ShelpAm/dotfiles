@@ -3,7 +3,7 @@
 alias nv='nvim'
 alias rm='trash'
 
-# alias -s md=$BROWSER
-alias -s pdf='firefox'
+alias -s md=$BROWSER
+alias -s pdf='okular'
 alias -s png='xdg-open'
 alias -s jpg='xdg-open'

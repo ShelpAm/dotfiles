@@ -48,7 +48,7 @@ zinit wait lucid for \
 zinit load agkozak/zsh-z
 
 zinit snippet OMZL::functions.zsh
-zinit snippet OMZP::web-search
+# zinit snippet OMZP::web-search
 zinit snippet OMZP::sudo
 
 # Use modern completion system
@@ -103,3 +103,8 @@ eval "$(starship init zsh)"
 # passphrass, which is annoying especially when I don't want to use ssh-related
 # features
 
+# Work with tmux:'ofirgall/tmux-window-name'
+tmux-window-name() {
+	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+}
+add-zsh-hook chpwd tmux-window-name
