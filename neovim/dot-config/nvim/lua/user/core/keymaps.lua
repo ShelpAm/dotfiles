@@ -56,10 +56,10 @@ map('i', '<A-k>', '<Esc><Cmd>m .-2<CR>==gi', { desc = 'Move up' })
 -- map('v', '<A-k>', ':m "<-2<CR>gv=gv', { desc = 'Move up' })
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
---map('n', '<Leader>d', vim.diagnostic.open_float)
+map('n', '<Leader>d', vim.diagnostic.open_float)
 map('n', '[d', vim.diagnostic.goto_prev)
 map('n', ']d', vim.diagnostic.goto_next)
---map('n', '<Leader>q', vim.diagnostic.setloclist)
+map('n', '<Leader>q', vim.diagnostic.setloclist)
 
 map('n', '<Leader>ts', '<Cmd>set spell!<CR>', { desc = '[T]oggle [S]pelling check' })
 map('n', '<Leader>th', '<Cmd>set hlsearch!<CR>', { desc = '[T]oggle [H]lsearch' })

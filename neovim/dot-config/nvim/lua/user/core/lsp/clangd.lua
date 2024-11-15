@@ -5,7 +5,7 @@ require('lspconfig').clangd.setup {
   capabilities = require('cmp_nvim_lsp').default_capabilities(),
   on_attach = config.default_on_attach,
   cmd = {
-    "/bin/clangd",
+    "clangd",
     -- "-j=8",
     -- "--completion-style=detailed",
     "-header-insertion=never",

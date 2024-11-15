@@ -24,14 +24,14 @@ If you want to change the directory to install plugins, you can modify the follo
 `~/.config/tmux/tmux.conf`, find the line with `set-environment -g TMUX_PLUGIN_MANAGER_PATH`,
 and modify it as below:
 ```tmux
-set-environment -g TMUX_PLUGIN_MANAGER_PATH "/path/to/plugins_dir"
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "/path/to/your/plugins/dir"
 ```
 Then, source the configuration:
 ```bash
 tmux source ~/.config/tmux/tmux.conf
 ```
-At last, install plugins by pressing `<prefix>I`, where the prefix is defaulted to be `Ctrl-B`.
-(note that the letter `I` is capitalized).
+At last, install plugins by pressing `<prefix>I`, where the `<prefix>` is by
+default `Ctrl-B`. (note the capitalized letter `I`).
 
 
 ## Troubleshooting

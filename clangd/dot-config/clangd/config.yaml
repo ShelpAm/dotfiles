@@ -1,5 +1,6 @@
 CompileFlags:                     # Tweak the parse settings
-  Add: [-Wall, -Wextra, -std=c++26, -stdlib=libc++]
+  Add: [-Wall, -Wextra, -std=c++26]
+  # Add: [-Wall, -Wextra, -std=c++26, -stdlib=libc++]
   Remove: []
   # Compiler: g++
   Compiler: clang++             # Change argv[0] of compile flags to `clang++`
@@ -28,15 +29,16 @@ Diagnostics:
       # - cppcoreguidelines-avoid-const-or-ref-data-members
       - cppcoreguidelines-avoid-do-while
       # - cppcoreguidelines-macro-usage
+      - modernize-use-std-print
       # - modernize-use-trailing-return-type
       # - cppcoreguidelines-avoid-magic-numbers
       # - readability-magic-numbers
     CheckOptions:
       readability-identifier-naming.VariableCase: lower_case
     FastCheckFilter: Loose
-  UnusedIncludes: Strict
+  UnusedIncludes: None
   Includes:
-    AnalyzeAngledIncludes: Yes
+    AnalyzeAngledIncludes: No
 
 Completion:
   AllScopes: No

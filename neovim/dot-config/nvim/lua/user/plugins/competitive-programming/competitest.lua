@@ -93,7 +93,7 @@ return {
         compile_directory = ".",
         compile_command = {
           c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
-          cpp = { exec = "g++", args = { "-g", "-std=gnu++20", "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
+          cpp = { exec = "clang++", args = { "-g", "-std=c++26", "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
           rust = { exec = "rustc", args = { "$(FNAME)" } },
           java = { exec = "javac", args = { "$(FNAME)" } },
         },

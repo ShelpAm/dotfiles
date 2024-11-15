@@ -5,7 +5,7 @@ return {
     dependencies = {
       'williamboman/mason-lspconfig.nvim' -- Find server executables from here
     },
-    -- enabled = false,
+    enabled = true,
     -- priority = 1,
     -- event = "BufRead",
     config = function()
