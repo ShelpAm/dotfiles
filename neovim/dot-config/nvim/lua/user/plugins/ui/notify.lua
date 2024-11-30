@@ -1,9 +1,10 @@
 return {
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      vim.opt.termguicolors = true
-      require("notify").setup()
-    end
-  }
+    {
+        "rcarriga/nvim-notify",
+        -- enabled = false,
+        config = function()
+            vim.opt.termguicolors = true
+            require("notify").setup()
+        end
+    }
 }

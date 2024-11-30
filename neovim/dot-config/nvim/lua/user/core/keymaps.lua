@@ -7,13 +7,13 @@ vim.g.localmapleader = ' '
 local keymap = vim.keymap
 
 local function map(mode, lhs, rhs, opts)
-  opts = opts or {}
-  opts.silent = true
-  return keymap.set(mode, lhs, rhs, opts)
+    opts = opts or {}
+    opts.silent = true
+    return keymap.set(mode, lhs, rhs, opts)
 end
 
 function M.map(mode, lhs, rhs, opts)
-  return map(mode, lhs, rhs, opts)
+    return map(mode, lhs, rhs, opts)
 end
 
 -- Use `jk` and `kj` to escape
@@ -68,13 +68,13 @@ map('n', '<Leader>l', '<Cmd>Lazy<CR>', { desc = '[L]azy' })
 
 -- Source current file
 map('n', '<Leader>s', function()
-  if vim.bo.filetype == 'lua' then
-    vim.cmd([[silent w | silent source %]])
-  elseif vim.bo.filetype == 'zsh' then
-    vim.cmd([[silent w | silent !exec zsh]])
-  else
-    error("Unrecognized filetype.")
-  end
+    if vim.bo.filetype == 'lua' then
+        vim.cmd([[silent w | silent source %]])
+    elseif vim.bo.filetype == 'zsh' then
+        vim.cmd([[silent w | silent !exec zsh]])
+    else
+        error("Unrecognized filetype.")
+    end
 end, { desc = '[S]ource current file' })
 
 -- map('n', '<F2>', '<Cmd>ClangdSwitchSourceHeader<CR>', { desc = 'Switch Source Header' })

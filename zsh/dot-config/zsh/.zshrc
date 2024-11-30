@@ -44,7 +44,7 @@ zinit wait lucid for \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
-# Easy jump to anywhere
+# Use `z` to jump anywhere!
 zinit load agkozak/zsh-z
 
 zinit snippet OMZL::functions.zsh
