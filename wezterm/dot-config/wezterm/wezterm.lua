@@ -12,6 +12,7 @@ local config = {
     },
 
     window_background_opacity = 0.95,
+
     window_padding = {
         -- left = '0.8cell',
         -- right = '0.8cell',
