@@ -17,7 +17,8 @@ function M.default_on_attach( --[[client]] _, bufnr)
     -- keymaps.map('n', '<leader>K', vim.lsp.buf.hover, bufopts)
 end
 
---- @hint Use :h lspconfig-all to find out more lsp servers. Reference this:
+-- To remove a lsp, just comment it out.
+--- @hint Use :h lspconfig-all to find out more lsp servers. Refer to:
 --- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 M.servers = {
     'asm_lsp',
@@ -28,7 +29,8 @@ M.servers = {
     -- 'csharp_ls',
     'gopls',
     'html',
-    'java_language_server',
+    -- 'java_language_server',
+    'jdtls',
     'lua_ls',
     'marksman',
     'pyright',

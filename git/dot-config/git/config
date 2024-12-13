@@ -38,6 +38,7 @@
 	repo = /home/shelpam/Documents/projects/c_project
 	repo = /home/shelpam/Documents/projects/learn-deep-learning
 	repo = /home/shelpam/Documents/projects/little-sb
+	repo = /home/shelpam/Documents/notes/computer-organization
 [http]
 	proxy = http://127.0.0.1:7890
 [https]

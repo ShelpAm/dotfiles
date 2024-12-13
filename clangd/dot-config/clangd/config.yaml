@@ -1,5 +1,6 @@
 CompileFlags:                     # Tweak the parse settings
-  Add: [-Wall, -Wextra, -std=c++26]
+  Add: [-std=c++26, -Wall -Wextra -Wpedantic -Wmisleading-indentation -Wunused
+    -Wuninitialized -Wshadow -Wconversion]
   # Add: [-Wall, -Wextra, -std=c++26, -stdlib=libc++]
   Remove: []
   # Compiler: g++
@@ -11,7 +12,7 @@ Index:
 
 Diagnostics:
   ClangTidy:
-    Add: 
+    Add:
       - bugprone-*
       - cppcoreguidelines-*
       - google-readability-*

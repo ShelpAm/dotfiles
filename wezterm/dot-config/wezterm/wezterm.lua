@@ -2,9 +2,10 @@ local wezterm = require 'wezterm'
 
 local config = {
     color_scheme = 'Bluloco Zsh Light (Gogh)',
+    -- color_scheme = 'BlulocoDark', -- Dark theme
     enable_wayland = false,
     font = wezterm.font('Input Mono'),
-    font_size = 16,
+    font_size = 9,
 
     inactive_pane_hsb = {
         saturation = 0.9,
