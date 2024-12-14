@@ -7,9 +7,17 @@ return {
         dependencies = {
             'nvim-tree/nvim-web-devicons'
         },
-        config = function()
-            vim.opt.termguicolors = true
-            require('bufferline').setup {}
-        end
+        opts = {
+            options = {
+                offsets = {
+                    {
+                        filetype = "NvimTree",
+                        text = "File Explorer",
+                        text_align = "left",
+                        separator = false,
+                    }
+                },
+            }
+        },
     },
 }

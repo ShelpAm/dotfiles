@@ -11,7 +11,7 @@ return {
         opts = {
             auto_reload_on_write = true,
             disable_netrw = true,
-            hijack_cursor = false,
+            hijack_cursor = true,
             hijack_netrw = true,
             hijack_unnamed_buffer_when_opening = false,
             on_attach = "default",
@@ -259,15 +259,6 @@ return {
             },
         },
         config = function(_, opts)
-            -- disable netrw at the very start of your init.lua
-            vim.g.loaded_netrw = 1
-            vim.g.loaded_netrwPlugin = 1
-
-            -- Because this has been set by user.core.options, we don't explicitly set
-            -- it here.
-            -- -- set termguicolors to enable highlight groups
-            -- vim.opt.termguicolors = true
-
             require('nvim-tree').setup(opts)
 
             -- Auto close: close the tab/nvim when nvim-tree is the last window.
