@@ -15,10 +15,10 @@ local config = {
     window_background_opacity = 0.95,
 
     window_padding = {
-        -- left = '0.8cell',
-        -- right = '0.8cell',
-        -- top = '0.4cell',
-        bottom = '0.4cell',
+        left = '0',
+        right = '0',
+        top = '0',
+        bottom = '0',
     },
     initial_rows = 43,
     initial_cols = 132,

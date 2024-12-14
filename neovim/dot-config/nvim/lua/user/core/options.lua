@@ -1,4 +1,10 @@
+-- Options
+
+-- This file contains **almost** all neovim options. And some of minor options
+-- reside in `./autocmds.lua`.
+
 local opt = vim.opt
+
 opt.autoread = true
 opt.autowrite = false    -- Enable auto write
 opt.autowriteall = false -- Enable auto write all the files
@@ -45,7 +51,7 @@ opt.spell = false
 opt.spelllang = { 'en_us' }
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
-opt.statuscolumn = '%C%s%=%{v:relnum?v:relnum:v:lnum}  '
+-- opt.statuscolumn         -- See file `user.core.autocmds.d.statuscolumn`
 opt.swapfile = false
 opt.tabstop = 2          -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
@@ -60,59 +66,60 @@ opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.winminwidth = 5                -- Minimum window width
 opt.wrap = false                   -- Line wrap
 
+
 vim.bo.autoread = true
 
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define({
-  {
-    name = "DiagnosticSignError",
-    text = "",
-    -- text = "", -- Use empty text to hide the signs in sign column
-    texthl = "DiagnosticSignError",
-    linehl = 'ErrorLine',
-  },
-  {
-    name = "DiagnosticSignWarn",
-    -- text = "",
-    text = "", -- Same as above
-    texthl = "DiagnosticSignWarn",
-    linehl = 'WarningLine',
-  },
-  {
-    name = "DiagnosticSignInfo",
-    -- text = "",
-    text = "", -- Same as above
-    texthl = "DiagnosticSignInfo",
-    linehl = 'InfoLine',
-  },
-  {
-    name = "DiagnosticSignHint",
-    -- text = "",
-    text = "", -- Same as above
-    texthl = "DiagnosticSignHint",
-    linehl = 'HintLine',
-  },
+    {
+        name = "DiagnosticSignError",
+        text = "",
+        -- text = "", -- Use empty text to hide the signs in sign column
+        texthl = "DiagnosticSignError",
+        linehl = 'ErrorLine',
+    },
+    {
+        name = "DiagnosticSignWarn",
+        -- text = "",
+        text = "", -- Same as above
+        texthl = "DiagnosticSignWarn",
+        linehl = 'WarningLine',
+    },
+    {
+        name = "DiagnosticSignInfo",
+        -- text = "",
+        text = "", -- Same as above
+        texthl = "DiagnosticSignInfo",
+        linehl = 'InfoLine',
+    },
+    {
+        name = "DiagnosticSignHint",
+        -- text = "",
+        text = "", -- Same as above
+        texthl = "DiagnosticSignHint",
+        linehl = 'HintLine',
+    },
 })
 
 -- make zsh files recognized as sh for bash-ls & treesitter
 vim.filetype.add {
-  extension = {
-    hpp = "cpp",
-    ixx = "cpp",
-    zsh = "sh",
-    sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
-  },
-  filename = {
-    [".zshrc"] = "sh",
-    [".zshenv"] = "sh",
-    ["version.h.in"] = "cmake",
-    ["xmake.lua"] = "xmake",
-  },
+    extension = {
+        hpp = "cpp",
+        ixx = "cpp",
+        zsh = "sh",
+        sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
+    },
+    filename = {
+        [".zshrc"] = "sh",
+        [".zshenv"] = "sh",
+        ["version.h.in"] = "cmake",
+        ["xmake.lua"] = "xmake",
+    },
 }
 
 if vim.fn.has('nvim-0.9.0') == 1 then
-  opt.splitkeep = 'screen'
-  opt.shortmess:append { C = true }
+    opt.splitkeep = 'screen'
+    opt.shortmess:append { C = true }
 end
 
 -- Fix markdown indentation settings
