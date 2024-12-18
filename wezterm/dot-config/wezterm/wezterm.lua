@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local config = {
     color_scheme = 'Bluloco Zsh Light (Gogh)',
     -- color_scheme = 'BlulocoDark', -- Dark theme
-    enable_wayland = false,
+    enable_wayland = true,
     font = wezterm.font('Input Mono'),
     font_size = 9,
 

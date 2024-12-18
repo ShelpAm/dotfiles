@@ -8,3 +8,4 @@ alias -s md=$BROWSER
 alias -s pdf='okular'
 alias -s png='xdg-open'
 alias -s jpg='xdg-open'
+
