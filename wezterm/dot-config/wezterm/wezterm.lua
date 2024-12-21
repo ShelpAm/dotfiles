@@ -5,7 +5,7 @@ local config = {
     -- color_scheme = 'BlulocoDark', -- Dark theme
     enable_wayland = true,
     font = wezterm.font('Input Mono'),
-    font_size = 9,
+    font_size = 12,
 
     inactive_pane_hsb = {
         saturation = 0.9,
