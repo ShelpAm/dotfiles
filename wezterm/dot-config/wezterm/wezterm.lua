@@ -12,6 +12,7 @@ local config = {
         brightness = 0.8,
     },
 
+    -- Window
     window_background_opacity = 0.95,
 
     window_padding = {
@@ -24,8 +25,10 @@ local config = {
     initial_cols = 132,
 
     -- Tab bar
-    enable_tab_bar = false,
-    tab_bar_at_bottom = true,
+    enable_tab_bar = true,
+    hide_tab_bar_if_only_one_tab = true,
+    tab_bar_at_bottom = false,
+    use_fancy_tab_bar = true,
 }
 
 return config
