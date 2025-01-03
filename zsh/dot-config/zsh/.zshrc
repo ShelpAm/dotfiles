@@ -6,17 +6,16 @@ source "${ZDOTDIR}/proxy.zsh"
 # ShelpAm's CONFIG END 
 ################################################################################
 
-ZINIT_BIN_DIR="${XDG_DATA_HOME}/zinit/zinit.git"
-ensure_parent_dir "${ZINIT_BIN_DIR}"
-[ ! -d $ZINIT_BIN_DIR/.git ] && git clone https://github.com/zdharma-continuum/zinit.git $ZINIT_BIN_DIR
-typeset -A ZINIT           # Initial Zinit's hash definition
-source $ZINIT_BIN_DIR/zinit.zsh
+###############
+#   OPTIONS   #
+#             #
+###############
 
 ## History
 HISTSIZE=100000000
 SAVEHIST=${HISTSIZE}
 HISTFILE="${XDG_STATE_HOME}/zsh/history"
-ensure_parent_dir "${HISTFILE}"
+ensure-parent-dir "${HISTFILE}"
 setopt EXTENDED_HISTORY
 setopt HIST_VERIFY          # Reload results of history expansion before executing
 # setopt HIST_IGNORE_ALL_DUPS # Do not enter duplicates into history
@@ -35,6 +34,21 @@ setopt INTERACTIVE_COMMENTS # Allow comments in interactive mode
 
 setopt ZLE                  # Use the zsh line editor.
 bindkey -v                  # Enable vi mode for (i don't even know :()
+
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+
+
+
+###############
+#    ZINIT    #
+#             #
+###############
+
+ZINIT_BIN_DIR="${XDG_DATA_HOME}/zinit/zinit.git"
+ensure-parent-dir "${ZINIT_BIN_DIR}"
+[ ! -d $ZINIT_BIN_DIR/.git ] && git clone https://github.com/zdharma-continuum/zinit.git $ZINIT_BIN_DIR
+typeset -A ZINIT           # Initial Zinit's hash definition
+source $ZINIT_BIN_DIR/zinit.zsh
 
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
@@ -89,8 +103,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # zstyle :prompt:pure:git:stash show yes # turn on git stash status
 # zstyle :prompt:pure:user show yes
 # prompt pure
-
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
 
 # Theme, starship
 eval "$(starship init zsh)"

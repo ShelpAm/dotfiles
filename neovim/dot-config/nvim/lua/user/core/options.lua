@@ -46,14 +46,14 @@ opt.sidescrolloff = 8      -- Columns of context
 opt.signcolumn = 'yes:2'   -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true       -- Don't ignore case with capitals
 opt.smartindent = true     -- Insert indents automatically
-opt.softtabstop = 2        -- Number of spaces in tab when editing
+opt.softtabstop = 4        -- Number of spaces in tab when editing
 opt.spell = false
 opt.spelllang = { 'en_us' }
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 -- opt.statuscolumn         -- See file `user.core.autocmds.d.statuscolumn`
 opt.swapfile = false
-opt.tabstop = 2          -- Number of spaces tabs count for
+opt.tabstop = 4          -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.textwidth = 80
 opt.timeout = true

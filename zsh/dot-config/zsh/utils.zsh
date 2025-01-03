@@ -37,7 +37,7 @@ function reload {
 function config {
   nvim "$ZDOTDIR/.zshrc" && reload
 }
-function ensure_parent_dir {
+function ensure-parent-dir {
   [ ! -e "$1" ] && mkdir -p "$(dirname $1)"
 }
 function ensure_dir {
