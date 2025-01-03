@@ -117,7 +117,9 @@ eval "$(starship init zsh)"
 
 # Work with tmux:'ofirgall/tmux-window-name'
 tmux-window-name() {
-	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+    if [ -n "$TMUX_PLUGIN_MANAGER_PATH" ]; then
+        ($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+    fi
 }
 add-zsh-hook chpwd tmux-window-name
 
