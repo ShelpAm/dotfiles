@@ -25,7 +25,7 @@ if [ ! -e "${DOTFILES_DIR}" ]; then
 fi
 
 # Note that `--no-folding` is needed due to `--dotfiles` doesn't work in
-# conjuntion with tree folding. See
+# conjunction with tree folding. See
 # https://lists.gnu.org/archive/html/bug-stow/2025-01/threads.html
 stow -d "${DOTFILES_DIR}" -t "${TARGET_DIR}" --restow \
     --dotfiles --no-folding ${PACKAGES}
