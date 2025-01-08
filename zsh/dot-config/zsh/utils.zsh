@@ -31,23 +31,38 @@ function proxy_off {
   # For apt
   # echo 'Run `sudo echo "" > /etc/apt/apt.conf.d/proxy.conf` to disable proxy for apt.'
 }
+
 function reload {
   exec zsh
 }
-function config {
+
+function config-zsh {
   nvim "$ZDOTDIR/.zshrc" && reload
 }
+
+function config {
+    config-zsh
+}
+
 function ensure-parent-dir {
   [ ! -e "$1" ] && mkdir -p "$(dirname $1)"
 }
+
 function ensure_dir {
   [ ! -d "$1" ] && mkdir -p "$1"
 }
+
 function turn_on_proxy_with_iphone {
   nmcli connection up ShepAm
   proxy_on
 }
+
 function turn_off_proxy_with_iphone {
   proxy_off
   nmcli connection up ACS_6.1G
 }
+
+function fix-tmux-env {
+    eval $(tmux show-env -s | grep '^SSH_')
+}
+
