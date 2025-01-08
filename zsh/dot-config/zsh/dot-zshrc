@@ -6,12 +6,12 @@ source "${ZDOTDIR}/proxy.zsh"
 # ShelpAm's CONFIG END 
 ################################################################################
 
-###############
-### OPTIONS ###
-###############
+###########################
+### ZSH BUILTIN OPTIONS ###
+###########################
 
 ## History
-HISTSIZE=250000
+HISTSIZE=16777216 # 1 << (30 - 6), totally 1 GB (if each line consumes 64 B)
 SAVEHIST="${HISTSIZE}"
 HISTFILE="${XDG_STATE_HOME}/zsh/history"
 ensure-parent-dir "${HISTFILE}"

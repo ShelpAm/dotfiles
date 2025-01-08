@@ -110,10 +110,12 @@ vim.filetype.add {
         sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
     },
     filename = {
+        ["dot-zshrc"] = "sh",
+        ["dot-zshenv"] = "sh",
+        ["version.h.in"] = "cmake",
+        -- ["xmake.lua"] = "lua",
         [".zshrc"] = "sh",
         [".zshenv"] = "sh",
-        ["version.h.in"] = "cmake",
-        ["xmake.lua"] = "xmake",
     },
 }
 

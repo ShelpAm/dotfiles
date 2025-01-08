@@ -38,6 +38,7 @@ M.servers = {
     -- 'remark_ls',
     'ruff',
     'rust_analyzer',
+    'ts_ls',
 }
 
 return M
