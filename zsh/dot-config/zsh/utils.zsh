@@ -1,8 +1,7 @@
 # Note that dnf won't use this proxy unless you set them up manually.
 
 function proxy_on {
-  cp ${ZDOTDIR}/proxy_on.zsh ${ZDOTDIR}/proxy.zsh
-  source ${ZDOTDIR}/proxy.zsh
+  source ${ZDOTDIR}/proxy_on.zsh
   git config --global http.proxy ${proxy}
   git config --global https.proxy ${proxy}
   gsettings set org.gnome.system.proxy mode 'manual'
@@ -10,16 +9,14 @@ function proxy_on {
   gsettings set org.gnome.system.proxy.http port ${proxy_port}
   gsettings set org.gnome.system.proxy.https host ${proxy_host}
   gsettings set org.gnome.system.proxy.https port ${proxy_port}
-  echo "Proxy environment variables which are set:"
-  env | grep -i proxy
+  echo "Proxy environment variables have been set."
   # For apt
   # echo "We have no access to the apt configuration file, so you may run this to enbale proxy for apt:"
   # echo '`sudo echo "Acquire::http::Proxy \"${ALL_PROXY}\";" > /etc/apt/apt.conf.d/proxy.conf`'
 }
 
 function proxy_off {
-  cp ${ZDOTDIR}/proxy_off.zsh ${ZDOTDIR}/proxy.zsh
-  source ${ZDOTDIR}/proxy.zsh
+  source ${ZDOTDIR}/proxy_off.zsh
   git config --global --unset http.proxy
   git config --global --unset https.proxy
   gsettings set org.gnome.system.proxy mode 'none'
@@ -66,3 +63,6 @@ function fix-tmux-env {
     eval $(tmux show-env -s | grep '^SSH_')
 }
 
+# function run-with-nvidia {
+#     env  $@
+# }

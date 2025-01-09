@@ -38,9 +38,14 @@ COLORTERM=truecolor
 export EDITOR=nvim
 export VISUAL=nvim
 
-# # Graphic card for Wayland
-# GBM_BACKEND=nvidia-drm
-# __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+##############
+### NVIDIA ###
+##############
+
+export __NV_PRIME_RENDER_OFFLOAD=1       # Default to use NVIDIA card
+export __GLX_VENDOR_LIBRARY_NAME=nvidia  # GLX
+export __VK_LAYER_NV_optimus=NVIDIA_only # Vulkan
 
 
 # GPG (Note: this may mess things up, so I choose to keep everything default.)

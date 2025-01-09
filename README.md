@@ -16,10 +16,11 @@ curl https://raw.githubusercontent.com/ShelpAm/dotfiles/main/bootstrap.sh | bash
 
 ## Special configuration
 
-*   See: [tmux README.md](./tmux/dot-config/tmux/README.md)
-*   See: [zsh README.md](./zsh/dot-config/zsh/README.md)
+*   See [bin README.md](bin/dot-local/bin/README.md)
+*   See [tmux README.md](./tmux/dot-config/tmux/README.md)
+*   See [zsh README.md](./zsh/dot-config/zsh/README.md)
 
-## Refs:
+## See also
 
 *   [stow documentation](https://www.gnu.org/software/stow/manual/html_node/index.html#SEC_Contents),
     by GNU stow
