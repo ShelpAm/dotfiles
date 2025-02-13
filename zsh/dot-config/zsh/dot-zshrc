@@ -34,26 +34,42 @@ setopt INTERACTIVE_COMMENTS # Allow comments in interactive mode
 setopt ZLE                  # Use the zsh line editor.
 bindkey -v                  # Enable vi mode for (i don't even know :()
 
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+# The mark that prompts when no eol at the end of a line.
+PROMPT_EOL_MARK="⏎"
 
 
-#############
-### ZINIT ###
-#############
+###########################
+### Zinit (And plugins) ###
+###########################
+
+# hint: Use `zinit update --parallel --all` to update those plugins.
+
+# OPTIONS:
+#    ice       Only use once
+#    lucid     Quiet mode
+#    wait"xx"  Wait for xx seconds (where "xx" can be omitted. If omitted, wait for 0 seconds)
+
+
+# Config for zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history match_prev_cmd)
+
 
 ZINIT_BIN_DIR="${XDG_DATA_HOME}/zinit/zinit.git"
 ensure-parent-dir "${ZINIT_BIN_DIR}"
-[ ! -d $ZINIT_BIN_DIR/.git ] && git clone https://github.com/zdharma-continuum/zinit.git $ZINIT_BIN_DIR
-typeset -A ZINIT           # Initial Zinit's hash definition
-source $ZINIT_BIN_DIR/zinit.zsh
+if [ ! -d "$ZINIT_BIN_DIR/.git" ]; then
+    git clone https://github.com/zdharma-continuum/zinit.git ${ZINIT_BIN_DIR}
+fi
+# Initial Zinit's hash definition, should be put before sourcing the following line.
+typeset -A ZINIT 
+source "$ZINIT_BIN_DIR/zinit.zsh"
 
 zinit wait lucid for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        zdharma-continuum/fast-syntax-highlighting \
+    blockf \
+        zsh-users/zsh-completions \
+    atload"!_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions
 
 # Use `z` to jump anywhere!
 zinit load agkozak/zsh-z
@@ -61,6 +77,11 @@ zinit load agkozak/zsh-z
 zinit snippet OMZL::functions.zsh
 # zinit snippet OMZP::web-search
 zinit snippet OMZP::sudo
+
+
+###############
+### ZSH ??? ###
+###############
 
 # Use modern completion system
 autoload -Uz compinit && compinit
@@ -84,55 +105,19 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-#############
-### Theme ###
-#############
-
-# zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-# zinit light sindresorhus/pure
-# print() {
-#   [ 0 -eq $# -a "prompt_pure_precmd" = "${funcstack[-1]}" ] || builtin print "$@";
-# }
-# fpath+=($HOME/.local/share/zinit/plugins/sindresorhus---pure/)
-# autoload -U promptinit && promptinit
-# # PURE_PROMPT_SYMBOL="%#"
-# PURE_CMD_MAX_EXEC_TIME=10
-# PURE_POWER_MODE=fancy
-# zstyle :prompt:pure:path color green
-# zstyle ':prompt:pure:prompt:*' color cyan # change the color for both `prompt:success` and `prompt:error`
-# zstyle :prompt:pure:git:stash show yes # turn on git stash status
-# zstyle :prompt:pure:user show yes
-# prompt pure
-
-# Theme, starship
-eval "$(starship init zsh)"
-
- # Start ssh-agent for every session, as it saves ssh passphrase for us.
-# eval "$(ssh-agent)"
-# ssh-add
-#
-#  Not using it because each time I started a sessino, it prompts to ask for
-# passphrass, which is annoying especially when I don't want to use ssh-related
-# features
 
 ########################
 ### TMUX Integration ###
 ########################
 
-# Work with tmux:'ofirgall/tmux-window-name'
-function tmux-window-name {
-    if [ -n "$TMUX_PLUGIN_MANAGER_PATH" ]; then
-        $TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py
-    fi
-}
+# source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
 
-function async-tmux-window-name {
-    (tmux-window-name &)
-}
 
-add-zsh-hook chpwd async-tmux-window-name
+#############
+### Theme ###
+#############
 
-## Trigger tmux-window-name on shell startup
-## Disabled because too slow
-# tmux-window-name
-
+# Starship. Also note that this should be put int the end of the `.zshrc`.
+# eval "$(starship init zsh)"
+theme="$(starship init zsh)"
+eval "${theme}"

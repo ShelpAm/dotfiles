@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 # Explanation on parameters:
 #
@@ -11,6 +11,10 @@
 #
 #   Fixes issue of not remembering password
 
-# --ozone-platform=wayland
 
-exec microsoft-edge --password-store=gnome-libsecret "$@"
+exec microsoft-edge \
+    --password-store=gnome-libsecret \
+    # --ozone-platform=wayland \
+    --enable-wayland-ime \
+    --ozone-platform-hint=auto \
+    "$@"

@@ -7,6 +7,9 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
 #export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}" # Not required to have a default value
+if [ -n "${XDG_RUNTIME_DIR}" ]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+fi
 
 # LESS
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
@@ -46,9 +49,12 @@ export VISUAL=nvim
 export __NV_PRIME_RENDER_OFFLOAD=1       # Default to use NVIDIA card
 export __GLX_VENDOR_LIBRARY_NAME=nvidia  # GLX
 export __VK_LAYER_NV_optimus=NVIDIA_only # Vulkan
+export GBM_BACKEND=nvidia-drm # Copied from hyprland.conf
+export __GL_GSYNC_ALLOWED=1
+export __GL_VRR_ALLOWED=0
 
 
-# GPG (Note: this may mess things up, so I choose to keep everything default.)
+# GPG (Note: this may mess things up, so keep everything default.)
 # export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 # ensure_dir "${GNUPGHOME}"
 # unset SSH_AGENT_PID
@@ -59,7 +65,11 @@ export __VK_LAYER_NV_optimus=NVIDIA_only # Vulkan
 # export GPG_TTY=$(tty)
 # gpg-connect-agent updatestartuptty /bye >/dev/null
 
-# competitive-programming
+
+###############################
+### Competitive Programming ###
+###############################
+
 export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-programming"
 
 
@@ -72,6 +82,7 @@ export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-progr
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Per-window_input_method_state
 
+# Cargo (rust)
 . "$HOME/.cargo/env"
 
 # Proxy settings
@@ -80,5 +91,4 @@ local proxy_port='7890'
 local proxy_address="${proxy_host}:${proxy_port}"
 local proxy="http://${proxy_address}"
 
-# QT
-# export QT_QPA_PLATFORM=wayland
+echo "zshenv loaded"

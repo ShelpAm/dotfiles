@@ -66,3 +66,41 @@ function fix-tmux-env {
 # function run-with-nvidia {
 #     env  $@
 # }
+
+# Untested
+function extract {
+    if [ $# -eq 0 ]; then
+        echo 'Usage: extract <file1> [file2 ... fileN]'
+        return 1
+    fi
+
+    while [ $# -gt 0 ]; do
+        file="$1"
+        shift
+
+        if [ ! -f "${file}" ]; then
+            echo "'${file}' doesn't exist. Skipping this file..."
+            continue
+        fi
+
+        case "${file}" in
+            *.tar)       ;&
+            *.tar.bz2)   ;&
+            *.tar.xz)    ;&
+            *.tar.gz)
+                         tar xvf "${file}"     ;;
+            *.bz2)       bunzip2 "${file}"     ;;
+            *.rar)       unrar x "${file}"     ;;
+            *.gz)        gunzip "${file}"      ;;
+            *.tbz2)      tar xvjf "${file}"    ;;
+            *.tgz)       tar xvzf "${file}"    ;;
+            *.zip)       unzip "${file}"       ;;
+            *.Z)         uncompress "${file}"  ;;
+            *.xz)        xz -d "${file}"       ;;
+            *.7z)        7z x "${file}"        ;;
+            *.a)         ar x "${file}"        ;;
+            *)           echo "Unable to extract '${file}'. Extension not supported." ;;
+        esac
+    done
+}
+

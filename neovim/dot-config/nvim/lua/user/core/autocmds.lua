@@ -21,15 +21,26 @@ autocmd('BufWritePre', {
 })
 
 -- Renames tmux window name, when entering or leaving neovim.
-autocmd({ 'VimEnter', 'VimLeave' }, {
+-- autocmd({ 'VimEnter', 'VimLeave' }, {
+--     callback = function()
+--         if vim.env.TMUX_PLUGIN_MANAGER_PATH then
+--             vim.uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. '/tmux-window-name/scripts/rename_session_windows.py', {})
+--         end
+--     end,
+-- })
+
+local uv = vim.uv
+
+vim.api.nvim_create_autocmd({ 'VimEnter', 'VimLeave' }, {
     callback = function()
         if vim.env.TMUX_PLUGIN_MANAGER_PATH then
-            vim.system({ vim.env.TMUX_PLUGIN_MANAGER_PATH .. '/tmux-window-name/scripts/rename_session_windows.py' })
-            --- Don't use the following because of deprecation.
-            -- local uv = vim.loop
-            -- uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. '/tmux-window-name/scripts/rename_session_windows.py', {})
+            uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. '/tmux-window-name/scripts/rename_session_windows.py', {})
         end
     end,
 })
 
+
+-- [[deprecated]]
 require('user.core.autocmds.statuscolumn')
+
+require('user.core.autocmds.markdown-textwidth-100')
