@@ -39,3 +39,10 @@ probably forgot to run `$ git clone https://github.com/tmux-plugins/tpm ~/.local
 If you want to switch another theme, and failed. Maybe it's the collision of
 themes: they're often named `theme`. So remove former installed theme plugin
 and re-install the latter.
+
+## Known issues
+
+When resuming tmux from old session, old environment variables will be saved, and restored to
+the sessions. To overcome this, you should:
+
+1. Kill and restart tmux server and tmux clients.

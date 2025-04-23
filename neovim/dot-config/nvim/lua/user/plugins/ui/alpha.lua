@@ -16,7 +16,8 @@ return {
 
             dashboard.section.header.val = vim.split(logo, "\n")
             dashboard.section.buttons.val = {
-                dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+                dashboard.button("c", " " .. " Config",
+                    ":e $HOME/.dotfiles/neovim/dot-config/nvim/lua/user/init.lua <CR>"), -- Tweaked by ShelpAm
                 dashboard.button("f", " " .. " Find file", ":cd $HOME | Telescope find_files <CR>"),
                 dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
                 dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),

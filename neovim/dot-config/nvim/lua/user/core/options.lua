@@ -64,7 +64,7 @@ opt.undolevels = 10000
 opt.updatetime = 200               -- Save swap file and trigger CursorHold
 opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.winminwidth = 5                -- Minimum window width
-opt.wrap = false                   -- Line wrap
+opt.wrap = true                    -- Line wrap
 
 
 vim.bo.autoread = true
@@ -129,3 +129,5 @@ vim.g.markdown_recommended_style = 0
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.diagnostic.config({ virtual_text = true })

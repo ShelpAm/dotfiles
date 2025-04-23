@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 DOTFILES_DIR="${HOME}/.dotfiles"
 TARGET_DIR="${HOME}"
@@ -10,6 +10,7 @@ PACKAGES="${PACKAGES} gdb"
 PACKAGES="${PACKAGES} git"
 PACKAGES="${PACKAGES} kitty"
 PACKAGES="${PACKAGES} hyprland"
+PACKAGES="${PACKAGES} hyprpaper"
 PACKAGES="${PACKAGES} neovim"
 PACKAGES="${PACKAGES} private"
 PACKAGES="${PACKAGES} tmux"

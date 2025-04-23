@@ -1,7 +1,7 @@
 # Note that dnf won't use this proxy unless you set them up manually.
 
 function proxy_on {
-  source ${ZDOTDIR}/proxy_on.zsh
+  source "${ZDOTDIR}/proxy_on.zsh"
   git config --global http.proxy ${proxy}
   git config --global https.proxy ${proxy}
   gsettings set org.gnome.system.proxy mode 'manual'
@@ -16,7 +16,7 @@ function proxy_on {
 }
 
 function proxy_off {
-  source ${ZDOTDIR}/proxy_off.zsh
+  source "${ZDOTDIR}/proxy_off.zsh"
   git config --global --unset http.proxy
   git config --global --unset https.proxy
   gsettings set org.gnome.system.proxy mode 'none'
@@ -30,11 +30,15 @@ function proxy_off {
 }
 
 function reload {
-  exec zsh
+    exec zsh
 }
 
 function config-zsh {
-  nvim "$ZDOTDIR/.zshrc" && reload
+    nvim "${ZDOTDIR}/.zshrc" && reload
+}
+
+function config-hyprland {
+    nvim "${XDG_CONFIG_HOME}/hypr/hyprland.conf"
 }
 
 function config {

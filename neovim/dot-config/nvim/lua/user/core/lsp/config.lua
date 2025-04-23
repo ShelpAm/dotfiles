@@ -15,6 +15,14 @@ function M.default_on_attach( --[[client]] _, bufnr)
     keymaps.map('n', '<leader>d', '<Cmd>Telescope lsp_document_symbols<CR>', bufopts)
     -- There has been `K` for hover, so disabling this
     -- keymaps.map('n', '<leader>K', vim.lsp.buf.hover, bufopts)
+    vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(ev)
+            local client = vim.lsp.get_client_by_id(ev.data.client_id)
+            if client:supports_method('textDocument/completion') then
+                vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+            end
+        end,
+    })
 end
 
 -- To remove a lsp, just comment it out.
@@ -27,6 +35,7 @@ M.servers = {
     'clangd',
     'cmake',
     -- 'csharp_ls',
+    'cssls',
     'gopls',
     'html',
     -- 'java_language_server',
@@ -34,7 +43,7 @@ M.servers = {
     'lua_ls',
     'marksman',
     'pyright',
-    'quick_lint_js',
+    -- 'quick_lint_js', -- javascript
     -- 'remark_ls',
     'ruff',
     'rust_analyzer',

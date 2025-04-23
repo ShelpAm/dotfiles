@@ -110,7 +110,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 ### TMUX Integration ###
 ########################
 
-# source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
+source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
 
 
 #############
@@ -121,3 +121,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # eval "$(starship init zsh)"
 theme="$(starship init zsh)"
 eval "${theme}"
+
+if uwsm check may-start && uwsm select; then
+    exec uwsm start default
+fi

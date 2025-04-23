@@ -4,8 +4,11 @@ alias nv='nvim'
 # alias rm='trash'
 # alias do-rm='rm'
 
-alias -s md=$BROWSER
-alias -s pdf='okular'
+alias -s doc='xdg-open'
+alias -s docx='xdg-open'
+alias -s md="$BROWSER"
+alias -s pdf='xdg-open'
 alias -s png='xdg-open'
 alias -s jpg='xdg-open'
-
+alias -s jar='java -jar'
+alias -s html='xdg-open'

@@ -11,10 +11,14 @@
 #
 #   Fixes issue of not remembering password
 
+edge='microsoft-edge-dev'
 
-exec microsoft-edge \
-    --password-store=gnome-libsecret \
-    # --ozone-platform=wayland \
-    --enable-wayland-ime \
-    --ozone-platform-hint=auto \
-    "$@"
+args=(
+    --password-store=gnome-libsecret
+    --enable-wayland-ime
+    --ozone-platform=wayland
+    --ozone-platform-hint=auto
+)
+
+exec ${edge} ${args[@]} "$@"
+

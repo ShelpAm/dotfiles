@@ -1,13 +1,21 @@
 return {
     {
         'hrsh7th/nvim-cmp',
-        -- enabled = false,
+        enabled = function() -- Disable in commenting, see https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques#disabling-completion-in-certain-contexts-such-as-comments
+            local disabled = false
+            disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+            disabled = disabled or (vim.fn.reg_recording() ~= '')
+            disabled = disabled or (vim.fn.reg_executing() ~= '')
+            disabled = disabled or require('cmp.config.context').in_treesitter_capture('comment')
+            return not disabled
+        end,
         event = { 'BufEnter', },
         dependencies = {
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-cmdline',
             'davidsierradz/cmp-conventionalcommits',
             'hrsh7th/cmp-nvim-lsp',
+            -- 'hrsh7th/cmp-nvim-lsp-signature-help', -- What does this do?
             'hrsh7th/cmp-path',
             'L3MON4D3/LuaSnip',
         },

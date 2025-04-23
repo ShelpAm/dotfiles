@@ -4,7 +4,7 @@ return {
         lazy = false,
         -- optional, but required for fuzzy finder support
         dependencies = {
-            'neovim/nvim-lspconfig',
+            'neovim/nvim-lspconfig', -- Added for info
             'nvim-treesitter/nvim-treesitter',
             {
                 'nvim-telescope/telescope-fzf-native.nvim',

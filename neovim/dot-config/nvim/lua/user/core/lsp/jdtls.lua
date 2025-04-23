@@ -1,0 +1,18 @@
+-- require('lspconfig').jdtls.setup {
+--     on_init = function(client)
+--         print('initial')
+--         if client.config.settings then
+--             client.notify('workspace/didChangeConfiguration', { settings = client.config.settings })
+--         end
+--     end,
+--     on_attach = function()
+--         print('Attaching jdtls')
+--     end,
+--     settings = {
+--         java = {
+--             signatureHelp = {
+--                 enabled = true,
+--             }
+--         }
+--     }
+-- }

@@ -1,15 +1,15 @@
 return {
-  -- Language server support
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason-lspconfig.nvim' -- Find server executables from here
+    -- Language server support
+    {
+        'neovim/nvim-lspconfig',
+        enabled = true,
+        dependencies = {
+            'williamboman/mason-lspconfig.nvim' -- Find server executables from here
+        },
+        -- priority = 1,
+        -- event = "BufRead",
+        config = function()
+            require('user.core.lsp').setup()
+        end
     },
-    enabled = true,
-    -- priority = 1,
-    -- event = "BufRead",
-    config = function()
-      require('user.core.lsp').setup()
-    end
-  },
 }
