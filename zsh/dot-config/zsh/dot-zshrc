@@ -118,9 +118,9 @@ source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
 #############
 
 # Starship. Also note that this should be put int the end of the `.zshrc`.
-# eval "$(starship init zsh)"
-theme="$(starship init zsh)"
-eval "${theme}"
+eval "$(starship init zsh)"
+
+eval "$(zoxide init zsh --cmd cd)"
 
 if uwsm check may-start && uwsm select; then
     exec uwsm start default

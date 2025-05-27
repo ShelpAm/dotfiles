@@ -1,6 +1,6 @@
 # Note that dnf won't use this proxy unless you set them up manually.
 
-function proxy_on {
+function proxy-on {
   source "${ZDOTDIR}/proxy_on.zsh"
   git config --global http.proxy ${proxy}
   git config --global https.proxy ${proxy}
@@ -15,7 +15,7 @@ function proxy_on {
   # echo '`sudo echo "Acquire::http::Proxy \"${ALL_PROXY}\";" > /etc/apt/apt.conf.d/proxy.conf`'
 }
 
-function proxy_off {
+function proxy-off {
   source "${ZDOTDIR}/proxy_off.zsh"
   git config --global --unset http.proxy
   git config --global --unset https.proxy
@@ -55,11 +55,11 @@ function ensure_dir {
 
 function turn_on_proxy_with_iphone {
   nmcli connection up ShepAm
-  proxy_on
+  proxy-on
 }
 
 function turn_off_proxy_with_iphone {
-  proxy_off
+  proxy-off
   nmcli connection up ACS_6.1G
 }
 

@@ -51,7 +51,7 @@ function M.setup()
 
     load_default_config()
     load_custom_config()
-    vim.lsp.enable(config.servers)
+    -- vim.lsp.enable(config.servers)
     vim.lsp.set_log_level("ERROR")
 end
 

@@ -6,7 +6,7 @@ alias nv='nvim'
 
 alias -s doc='xdg-open'
 alias -s docx='xdg-open'
-alias -s md="$BROWSER"
+alias -s md='xdg-open'
 alias -s pdf='xdg-open'
 alias -s png='xdg-open'
 alias -s jpg='xdg-open'

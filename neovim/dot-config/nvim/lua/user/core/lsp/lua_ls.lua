@@ -3,7 +3,9 @@ local config = require('user.core.lsp.config')
 require('lspconfig').lua_ls.setup({
     -- Add additional capabilities supported by nvim-cmp
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    on_attach = config.default_on_attach,
+    on_attach = function(client, bufnr)
+        config.default_on_attach(client, bufnr)
+    end,
     settings = {
         root_dir = vim.fs.dirname('lua'),
         Lua = {

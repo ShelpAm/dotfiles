@@ -51,16 +51,21 @@ export __GL_VRR_ALLOWED=0
 
 export XWAYLAND_NO_GLAMOR=1 # This may fix the flickering issue
 
+
 #####################
 ### APPLY WAYLAND ###
 #####################
+
 export QT_QPA_PLATFORM=wayland              # QT
 export ELECTRON_OZONE_PLATFORM_HINT=wayland # Electron
+
 
 ##########
 ### QT ###
 ##########
-export QT_QPA_PLATFORMTHEME=qt6ct # This can change font size of QT apps.
+
+export QT_QPA_PLATFORMTHEME=qt6ct # Intended for changing font size of QT apps.
+
 
 # GPG (Note: this may mess things up, so keep everything default.)
 # export GNUPGHOME="${XDG_DATA_HOME}/gnupg"

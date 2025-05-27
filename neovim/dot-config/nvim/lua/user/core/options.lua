@@ -112,10 +112,12 @@ vim.filetype.add {
     filename = {
         ["dot-zshrc"] = "sh",
         ["dot-zshenv"] = "sh",
+        ["dot-zprofile"] = "sh",
         ["version.h.in"] = "cmake",
-        -- ["xmake.lua"] = "lua",
+        ["xmake.lua"] = "xmake",
         [".zshrc"] = "sh",
         [".zshenv"] = "sh",
+        [".zprofile"] = "sh",
     },
 }
 
