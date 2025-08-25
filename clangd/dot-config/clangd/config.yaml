@@ -1,10 +1,10 @@
 CompileFlags:                     # Tweak the parse settings
-  Add: [-std=c++26, -Werror -Wall -Wextra -Wpedantic -Wmisleading-indentation -Wunused
-    -Wuninitialized -Wshadow -Wconversion]
+  # Add: [-std=c++26, -Werror -Wall -Wextra -Wpedantic -Wmisleading-indentation -Wunused
+  #   -Wuninitialized -Wshadow -Wconversion]
   # Add: [-Wall, -Wextra, -std=c++26, -stdlib=libc++]
   Remove: []
   # Compiler: g++
-  Compiler: clang++             # Change argv[0] of compile flags to `clang++`
+  # Compiler: clang++             # Change argv[0] of compile flags to `clang++`
 
 Index:
   Background: Build     # Disable slow background indexing of these files.

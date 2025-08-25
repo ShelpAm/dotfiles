@@ -1,0 +1,19 @@
+# This file will be sourced by the shell, when uwsm launched.
+# Syntax of this file: export XXX=YYY
+
+export XCURSOR_SIZE=24
+
+# Nvidia
+export LIBVA_DRIVER_NAME=nvidia
+export NVD_BACKEND=direct # VA-API hardware video acceleration, see https://wiki.hyprland.org/Nvidia/#va-api-hardware-video-acceleration
+export GBM_BACKEND=nvidia-drm # Forces NVIDIA GPU
+#
+# # Force wayland
+export ELECTRON_OZONE_PLATFORM_HINT=auto # Fixes softwares built with Electron.
+export GDK_BACKEND=wayland,x11,*
+export QT_QPA_PLATFORM=wayland
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+
+# fcitx
+export QT_IM_MODULE=fcitx

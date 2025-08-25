@@ -7,9 +7,12 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
 #export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}" # Not required to have a default value
-if [ -n "${XDG_RUNTIME_DIR}" ]; then
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
-fi
+
+# The following may be skipped. See
+# https://wiki.archlinux.org/title/GNOME/Keyring#Setup_gcr.
+# if [ -n "${XDG_RUNTIME_DIR}" ]; then
+#     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+# fi
 
 # LESS
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
@@ -56,7 +59,10 @@ export XWAYLAND_NO_GLAMOR=1 # This may fix the flickering issue
 ### APPLY WAYLAND ###
 #####################
 
-export QT_QPA_PLATFORM=wayland              # QT
+export QT_QPA_PLATFORM='wayland;xcb'              # QT
+## Removed ,xcb because `albert` doesn't recognize the "wayland,xcb" option, but "wayland".
+# export QT_QPA_PLATFORM=wayland                    # QT
+
 export ELECTRON_OZONE_PLATFORM_HINT=wayland # Electron
 
 
@@ -95,6 +101,7 @@ export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-progr
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Per-window_input_method_state
 
+
 # Cargo (rust)
 . "$HOME/.cargo/env"
 
@@ -114,7 +121,7 @@ export GEM_HOME="$XDG_DATA_HOME/gems"
 
 
 typeset -U path
-path=($path ~/.local/bin ~/.local/share/python/bin ~/.local/opt/gradle-8.12.1/bin /opt/pt $GEM_HOME/bin)
+path=($path ~/.local/bin ~/.local/share/python/bin ~/.local/opt/gradle-8.12.1/bin /opt/pt $GEM_HOME/bin /home/shelpam/Documents/projects/llvm-project/build/bin)
 
 typeset -U mailpath
 mailpath=($mailpath)

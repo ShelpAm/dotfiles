@@ -41,6 +41,10 @@ function config-hyprland {
     nvim "${XDG_CONFIG_HOME}/hypr/hyprland.conf"
 }
 
+config-ghostty() {
+    nvim "${XDG_CONFIG_HOME}/ghostty/config"
+}
+
 function config {
     config-zsh
 }

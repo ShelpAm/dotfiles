@@ -19,7 +19,6 @@ opt.confirm = false            -- Confirm to save changes before exiting modifie
 opt.cursorcolumn = false       -- Disable highlighting of the current column
 opt.cursorline = true          -- Enable highlighting of the current line
 opt.encoding = 'utf-8'
-opt.expandtab = true           -- Use spaces instead of tabs
 opt.formatoptions = 'jcroqlnt' -- tcqj
 opt.grepformat = '%f:%l:%c:%m'
 opt.grepprg = 'rg --vimgrep'
@@ -46,14 +45,13 @@ opt.sidescrolloff = 8      -- Columns of context
 opt.signcolumn = 'yes:2'   -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true       -- Don't ignore case with capitals
 opt.smartindent = true     -- Insert indents automatically
-opt.softtabstop = 4        -- Number of spaces in tab when editing
+opt.smoothscroll = true
 opt.spell = false
 opt.spelllang = { 'en_us' }
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 -- opt.statuscolumn         -- See file `user.core.autocmds.d.statuscolumn`
 opt.swapfile = false
-opt.tabstop = 4          -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.textwidth = 80
 opt.timeout = true
@@ -66,8 +64,11 @@ opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.winminwidth = 5                -- Minimum window width
 opt.wrap = true                    -- Line wrap
 
-
 vim.bo.autoread = true
+
+opt.expandtab = true -- Use spaces instead of tabs
+opt.tabstop = 8      -- Number of spaces tabs count for (Don't edit this as vim told us to)
+opt.softtabstop = 4  -- Number of spaces in tab when editing
 
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define({

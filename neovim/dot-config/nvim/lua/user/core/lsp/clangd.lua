@@ -22,11 +22,11 @@ return {
         "clangd",
         -- "-j=8",
         -- "--completion-style=detailed",
-        "-header-insertion=never",
+        "--header-insertion=never",
         -- "--pch-storage=memory",
         -- "--header-insertion-decorators",
         -- "--print-options",
-        -- "--log=verbose"
+        "--log=error"
     },
     root_markers = { 'compile_commands.json', 'compile_flags.txt' },
     filetypes = { 'c', 'cpp' },

@@ -1,7 +1,7 @@
 return {
     {
         'mfussenegger/nvim-jdtls',
-        enable = false,
+        enabled = false,
         ft = 'java',
         config = function()
             local config = {

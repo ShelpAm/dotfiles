@@ -1,0 +1,4 @@
+# Syntax of this file: export XXX=YYY
+# See https://wiki.hypr.land/Configuring/Environment-variables/
+
+export HYPRCURSOR_SIZE=24

@@ -1,5 +1,5 @@
 -- [DEPRECATED]
--- This file has been deprecated. Now I use `statuscol` plugin to manage
+-- This file has been deprecated. Now use `statuscol` plugin to manage
 -- statuscolumn.
 
 

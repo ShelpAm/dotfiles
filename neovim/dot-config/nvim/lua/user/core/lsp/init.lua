@@ -48,7 +48,6 @@ end
 
 function M.setup()
     -- Set up lspconfig
-
     load_default_config()
     load_custom_config()
     -- vim.lsp.enable(config.servers)

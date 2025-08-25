@@ -25,6 +25,7 @@ map('n', '<Leader>w', '<Cmd>w<CR>', { desc = '[W]rite Buffer' })
 map({ 'i', 'v', 'n', 's' }, '<C-S>', '<Cmd>w<CR><Esc>', { desc = 'Save file' })
 -- map('n', '<Leader>q', '<Cmd>q<CR>', { desc = '[Q]uit' })
 
+-- Overriden by TmuxNavigation plugin
 -- -- Move to window using the <Ctrl> hjkl keys
 -- map('n', '<C-h>', '<C-w>h', { desc = 'Go to left window' })
 -- map('n', '<C-j>', '<C-w>j', { desc = 'Go to lower window' })
@@ -32,8 +33,8 @@ map({ 'i', 'v', 'n', 's' }, '<C-S>', '<Cmd>w<CR><Esc>', { desc = 'Save file' })
 -- map('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
 
 -- Resize with arrows
-map('n', '<C-Up>', '<Cmd>resize -1<CR>', { desc = '' })
-map('n', '<C-Down>', '<Cmd>resize +1<CR>', { desc = '' })
+map('n', '<C-Up>', '<Cmd>resize +1<CR>', { desc = '' })
+map('n', '<C-Down>', '<Cmd>resize -1<CR>', { desc = '' })
 map('n', '<C-Left>', '<Cmd>vertical resize -1<CR>', { desc = '' })
 map('n', '<C-Right>', '<Cmd>vertical resize +1<CR>', { desc = '' })
 
