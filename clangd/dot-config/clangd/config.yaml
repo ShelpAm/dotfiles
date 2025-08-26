@@ -7,8 +7,13 @@ CompileFlags:                     # Tweak the parse settings
   # Compiler: clang++             # Change argv[0] of compile flags to `clang++`
 
 Index:
-  Background: Build     # Disable slow background indexing of these files.
-  StandardLibrary: No
+  Background: Skip     # Disable slow background indexing of these files.
+  StandardLibrary: false
+
+Style:
+  AngledHeaders: 
+    - third-party/.*
+    - 3rdparty/.*
 
 Diagnostics:
   ClangTidy:
@@ -43,18 +48,23 @@ Diagnostics:
 
 Completion:
   AllScopes: No
+  ArgumentLists: FullPlaceholders
 
 InlayHints:
-  Enabled: Yes
-  BlockEnd: No
-  DeducedTypes: Yes
-  Designators: Yes
-  ParameterNames: Yes
+  BlockEnd: false
+  Designators: true
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+  DefaultArguments: true
   TypeNameLimit: 24
 
 Hover:
-  ShowAKA: Yes
+  ShowAKA: false
 
 SemanticTokens:
   DisabledKinds: []
   DisabledModifiers: []
+
+Documentation:
+  CommentFormat: Markdown

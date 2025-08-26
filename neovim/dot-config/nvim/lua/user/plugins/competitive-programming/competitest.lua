@@ -59,7 +59,6 @@ return {
                         height = 0.5,
                         show_nu = true,
                         show_rnu = false,
-                        close_mappings = { "q", "Q" },
                     },
                 },
                 popup_ui = {
@@ -106,7 +105,7 @@ return {
                     java = { exec = "java", args = { "$(FNOEXT)" } },
                 },
                 multiple_testing = -1,
-                maximum_time = 2000,
+                maximum_time = 5000,
                 output_compare_method = "squish",
                 view_output_diff = true,
 
