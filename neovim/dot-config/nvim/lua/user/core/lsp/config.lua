@@ -9,12 +9,10 @@ function M.default_on_attach( --[[client]] _, bufnr)
     keymaps.map('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame', unpack(bufopts) })
     keymaps.map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
     keymaps.map('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition', unpack(bufopts) })
-    keymaps.map('n', 'gh', vim.lsp.buf.hover, { desc = '[G]oto [H]over', unpack(bufopts) })
+    -- keymaps.map('n', 'gh', vim.lsp.buf.hover, { desc = '[G]oto [H]over', unpack(bufopts) })
     keymaps.map('n', 'gi', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplemetation', unpack(bufopts) })
     keymaps.map('n', 'gr', vim.lsp.buf.references, { desc = '[G]oto [R]eference', unpack(bufopts) })
     keymaps.map('n', '<leader>d', '<Cmd>Telescope lsp_document_symbols<CR>', bufopts)
-    -- There has been `K` for hover, so disabling this
-    -- keymaps.map('n', '<leader>K', vim.lsp.buf.hover, bufopts)
     vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(ev)
             local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -45,7 +43,7 @@ M.servers = {
     'pyright',
     -- 'quick_lint_js', -- javascript
     -- 'remark_ls',
-    'ruff',
+    -- 'ruff',
     'rust_analyzer',
     'ts_ls',
 }

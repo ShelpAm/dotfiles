@@ -7,6 +7,7 @@ return {
             local competitive_programming_dir = os.getenv("COMPETITIVE_PROGRAMMING_DIR")
             require('competitest').setup {
                 local_config_file_name = ".competitest.lua",
+                start_receiving_persistently_on_setup = false,
 
                 floating_border = "rounded",
                 floating_border_highlight = "FloatBorder",
@@ -59,6 +60,7 @@ return {
                         height = 0.5,
                         show_nu = true,
                         show_rnu = false,
+                        open_when_compilation_fails = true,
                     },
                 },
                 popup_ui = {
@@ -92,7 +94,7 @@ return {
                 compile_directory = ".",
                 compile_command = {
                     c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
-                    cpp = { exec = "clang++", args = { "-g", "-std=c++26", "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
+                    cpp = { exec = "g++", args = { "-g", "-std=c++26", "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
                     rust = { exec = "rustc", args = { "$(FNAME)" } },
                     java = { exec = "javac", args = { "$(FNAME)" } },
                 },

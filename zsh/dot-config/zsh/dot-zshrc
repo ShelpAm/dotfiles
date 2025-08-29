@@ -116,7 +116,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 ########################
 ### TMUX Integration ###
 ########################
-
 source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
 
 
@@ -148,7 +147,6 @@ eval "$(pyenv virtualenv-init -)"
 ############
 ### uwsm ###
 ############
-
 if uwsm check may-start && uwsm select; then
     exec uwsm start default
 fi

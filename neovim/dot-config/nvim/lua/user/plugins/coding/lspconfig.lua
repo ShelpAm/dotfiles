@@ -6,10 +6,6 @@ return {
         dependencies = {
             'williamboman/mason-lspconfig.nvim' -- Find server executables from here
         },
-        -- priority = 1,
-        -- event = "BufRead",
-        config = function()
-            require('user.core.lsp').setup()
-        end
+        event = "VeryLazy",
     },
 }

@@ -1,6 +1,6 @@
 CompileFlags:                     # Tweak the parse settings
-  # Add: [-std=c++26, -Werror -Wall -Wextra -Wpedantic -Wmisleading-indentation -Wunused
-  #   -Wuninitialized -Wshadow -Wconversion]
+  Add: [-Werror -Wall -Wextra -Wpedantic -Wmisleading-indentation -Wunused
+    -Wuninitialized -Wshadow -Wconversion]
   # Add: [-Wall, -Wextra, -std=c++26, -stdlib=libc++]
   Remove: []
   # Compiler: g++

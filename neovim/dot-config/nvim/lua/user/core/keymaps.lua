@@ -84,6 +84,6 @@ end, { desc = '[S]ource current file' })
 map('n', '<F5>', function() vim.cmd([[CompetiTest run]]) end, { desc = 'Run current file' })
 map('n', '<F6>', function() vim.cmd([[%yank]]) end, { desc = 'Copy current buffer' })
 
-map({ 'n' }, "<Leader>rp", "<Cmd>CompetiTest receive problem<Cr>", { desc = '[R]eceive [P]roblem' })
+map({ 'n' }, "<Leader>rp", "<Cmd>CompetiTest receive persistently<Cr>", { desc = '[R]eceive [P]ersistently' })
 
 return M
