@@ -67,4 +67,4 @@ SemanticTokens:
   DisabledModifiers: []
 
 Documentation:
-  CommentFormat: Markdown
+  CommentFormat: Doxygen

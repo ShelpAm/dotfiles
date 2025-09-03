@@ -90,7 +90,11 @@ fpath+="${ZSH_CUSTOM_COMPLETION_DIR}"
 # Generate completion scripts for poetry, a python env manage tool.
 [ command -v poetry >/dev/null 2>&1 ] && poetry completions zsh > ${ZSH_CUSTOM_COMPLETION_DIR}/_poetry
 
-# Use modern completion system
+## Use bash-compatible layer (provided by zsh)
+autoload -Uz bashcompinit && bashcompinit
+source 
+
+## Use modern completion system
 autoload -Uz compinit && compinit
 
 zstyle ':completion:*' auto-description 'specify: %d'
