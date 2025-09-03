@@ -1,6 +1,3 @@
 [submodule "private"]
 	path = private
 	url = git@github.com:ShelpAm/private.git
-[submodule "zsh/dot-config/zsh/completions/grubby-bash-completion"]
-	path = zsh/dot-config/zsh/completions/grubby-bash-completion
-	url = https://github.com/markyangcc/grubby-bash-completion.git
