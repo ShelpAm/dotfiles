@@ -1,5 +1,9 @@
 My dotfiles for consistent cross-platform experience, managed by GNU stow.
 
+> ⚠️ **Warning**
+>
+> `uwsm` has been removed due to its incompatibility with `Hyprland`.
+
 ## Prerequisites
 
 Before running the script, you should first have `curl`, `git` and
@@ -14,11 +18,16 @@ Before running the script, you should first have `curl`, `git` and
 curl https://raw.githubusercontent.com/ShelpAm/dotfiles/main/bootstrap.sh | bash
 ```
 
-## Special configuration
+## Specific configuration
 
 *   See [bin README.md](bin/dot-local/bin/README.md)
 *   See [tmux README.md](./tmux/dot-config/tmux/README.md)
 *   See [zsh README.md](./zsh/dot-config/zsh/README.md)
+
+### Services
+
+Package services contains the following:
+*   blog start-on-boot.
 
 ## See also
 

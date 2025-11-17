@@ -13,4 +13,4 @@ add-zsh-hook chpwd async-tmux-window-name
 
 
 ## Trigger tmux-window-name on shell startup (Disabled because too slow)
-# tmux-window-name
+async-tmux-window-name

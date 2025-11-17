@@ -44,6 +44,8 @@ export VISUAL=nvim
 ##############
 ### NVIDIA ###
 ##############
+# Since nvidia driver may (possibly) be used in non-GUI environment, define them
+# in `.zshrc`, rather than `hyprland.conf`. (Except GUI-only variables)
 export __NV_PRIME_RENDER_OFFLOAD=1       # Default to use NVIDIA card
 export __GLX_VENDOR_LIBRARY_NAME=nvidia  # GLX
 export __VK_LAYER_NV_optimus=NVIDIA_only # Vulkan
@@ -52,19 +54,6 @@ export __GL_GSYNC_ALLOWED=1
 export __GL_VRR_ALLOWED=0
 
 export XWAYLAND_NO_GLAMOR=1 # This may fix the flickering issue
-
-
-#####################
-### APPLY WAYLAND ###
-#####################
-export QT_QPA_PLATFORM='wayland;xcb'              # QT
-export ELECTRON_OZONE_PLATFORM_HINT=wayland # Electron
-
-
-##########
-### QT ###
-##########
-export QT_QPA_PLATFORMTHEME=qt6ct # Intended for changing font size of QT apps.
 
 
 # GPG (Note: this may mess things up, so keep everything default.)
@@ -127,4 +116,4 @@ mailpath=($mailpath \
 )
 
 SCRIPT_PATH="$(realpath "${(%):-%x}")"
-echo "${SCRIPT_PATH} loaded."
+# echo "${SCRIPT_PATH} loaded." >&2

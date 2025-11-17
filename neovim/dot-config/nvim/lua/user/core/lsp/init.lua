@@ -55,13 +55,13 @@ function M.setup()
     vim.lsp.enable(config.servers)
 
     -- Overriding can be placed here.
-    for _, server in ipairs(config.servers) do
-        vim.lsp.config(server, {
-            on_attach = config.default_on_attach,
-        })
-    end
+    -- for _, server in ipairs(config.servers) do
+    --     vim.lsp.config(server, {
+    --         on_attach = config.default_on_attach,
+    --     })
+    -- end
 
-    vim.lsp.inlay_hint.enable(true)
+    vim.lsp.inlay_hint.enable(false)
     vim.lsp.set_log_level("error")
 end
 

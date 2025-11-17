@@ -26,7 +26,7 @@ return {
             },
             sync_root_with_cwd = true,
             view = {
-                centralize_selection = false,
+                centralize_selection = true,
                 cursorline = true,
                 debounce_delay = 15,
                 side = "left",
@@ -133,7 +133,7 @@ return {
             },
             update_focused_file = {
                 enable = true,
-                update_root = true,
+                update_root = false,
                 ignore_list = {},
             },
             system_open = {

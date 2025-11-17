@@ -1,10 +1,6 @@
 return {
-  {
-    'williamboman/mason.nvim',
-    -- cmd = {
-    --   'Mason',
-    -- },
-    build = ":MasonUpdate",
-    opts = {},
-  },
+    {
+        "mason-org/mason.nvim",
+        opts = {}
+    }
 }

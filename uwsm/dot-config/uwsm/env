@@ -1,5 +1,5 @@
 # This file will be sourced by the shell, when uwsm launched.
-# Syntax of this file: export XXX=YYY
+# The syntax of this file is the same as .bashrc: export XXX=YYY
 
 export XCURSOR_SIZE=24
 

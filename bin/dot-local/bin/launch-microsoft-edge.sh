@@ -16,8 +16,7 @@ edge='microsoft-edge-dev'
 args=(
     --password-store=gnome-libsecret
     --enable-wayland-ime
-    # --enable-features=UseOzonePlatform,WaylandLinuxDrmSyncobj # This seems to
-    # break communications between the browser and ComptiTest.nvim
+    # --enable-features=UseOzonePlatform,WaylandLinuxDrmSyncobj
     --ozone-platform=wayland
     --ozone-platform-hint=auto
 )

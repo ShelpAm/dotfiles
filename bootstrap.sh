@@ -19,6 +19,7 @@ PACKAGES="${PACKAGES} wezterm"
 PACKAGES="${PACKAGES} wget"
 PACKAGES="${PACKAGES} xdg-user-dirs"
 PACKAGES="${PACKAGES} zsh"
+PACKAGES="${PACKAGES} services"
 
 mkdir -p "${DOTFILES_DIR}" "${TARGET_DIR}"
 

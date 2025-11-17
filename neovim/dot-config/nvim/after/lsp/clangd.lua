@@ -7,9 +7,10 @@ return {
         -- "--pch-storage=memory",
         -- "--header-insertion-decorators",
         -- "--print-options",
-        -- "--log=error",
-        "--log=info",
+        "--log=error",
+        -- "--log=info",
         -- "--log=verbose",
+        "--experimental-modules-support",
     },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
     root_markers = {
@@ -21,5 +22,5 @@ return {
         'configure.ac', -- AutoTools
         '.git',
     },
-
+    on_attach = require('user.core.lsp.config').default_on_attach,
 }

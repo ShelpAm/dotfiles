@@ -1,0 +1,15 @@
+[Unit]
+Description=Blog page for ShelpAm (localhost:4000)
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Documents/projects/blog
+Environment="PATH=/home/shelpam/.local/share/gems/bin:/usr/local/bin:/usr/bin"
+Environment="GEM_HOME=/home/shelpam/.local/share/gems"
+ExecStart=%h/Documents/projects/blog/tools/run.sh
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=default.target

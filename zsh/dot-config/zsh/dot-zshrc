@@ -114,20 +114,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
-########################
-### TMUX Integration ###
-########################
-source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
-
-
-#############
-### Theme ###
-#############
-
-# Starship. Also note that this should be put int the end of the `.zshrc`.
-eval "$(starship init zsh)"
-
-
 # Zoxide is for `cd` alias. In short, it is an integration of `z` to `cd`.
 eval "$(zoxide init zsh --cmd cd)"
 
@@ -145,9 +131,35 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 
+##############
+### Dotnet ###
+##############
+export PATH="/home/shelpam/.local/opt/dotnet/:$PATH"
+
+
+##############
+### DuckDB ###
+##############
+export PATH="/home/shelpam/.duckdb/cli/latest:$PATH"
+
+
+########################
+### TMUX Integration ###
+########################
+source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
+
+
+#############
+### Theme ###
+#############
+
+# Starship. Also note that this should be put int the end of the `.zshrc`.
+eval "$(starship init zsh)"
+
+
 ############
 ### uwsm ###
 ############
-if uwsm check may-start && uwsm select; then
-    exec uwsm start default
-fi
+# if uwsm check may-start && uwsm select; then
+#     exec uwsm start default
+# fi

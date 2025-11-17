@@ -20,13 +20,13 @@ local config = require('user.core.lsp.config')
 return {
     cmd = {
         "clangd",
-        -- "-j=8",
+        "-j=8",
         -- "--completion-style=detailed",
         "--header-insertion=never",
         -- "--pch-storage=memory",
         -- "--header-insertion-decorators",
         -- "--print-options",
-        "--log=error"
+        "--log=error",
     },
     root_markers = { 'compile_commands.json', 'compile_flags.txt' },
     filetypes = { 'c', 'cpp' },
