@@ -22,13 +22,17 @@ ensure-parent-dir "${LESSHISTFILE}"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 ensure-parent-dir "${NPM_CONFIG_USERCONFIG}"
 
+# Hyprshot
+export HYPRSHOT_DIR="$(xdg-user-dir SCREENSHOTS)"
+
 # GOLANG
 export GOPATH="${XDG_DATA_HOME}/go"
 
 # PYTHON
 # export PYTHONSTARTUP="${XDG_DATA_HOME}/python/startup.py"
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
-export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
+## Don't set this, because tmux won't source this variable. And python won't search in user module path.
+# export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 export PYTHONHISTFILE="${XDG_STATE_HOME}/python/history"
 
 # WGET
@@ -85,7 +89,7 @@ export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-progr
 
 
 # Cargo (rust)
-. "$HOME/.cargo/env"
+[ -e "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # Proxy settings
 local proxy_host='127.0.0.1'

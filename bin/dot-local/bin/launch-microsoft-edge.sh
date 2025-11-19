@@ -21,5 +21,9 @@ args=(
     --ozone-platform-hint=auto
 )
 
+# If profile lock broken, rm the lock.
+if [ ! -e ~/.config/microsoft-edge-dev/SingletonSocket ]; then
+    rm ~/.config/microsoft-edge-dev/Singleton*
+fi
 exec ${edge} ${args[@]} "$@"
 

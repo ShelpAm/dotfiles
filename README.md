@@ -10,7 +10,7 @@ Before running the script, you should first have `curl`, `git` and
 [`stow`](https://www.gnu.org/software/stow/) installed.
 
 *   Debian/Ubuntu: `apt install curl git stow`
-*   Fedora: `dnf install curl git stow`
+*   Fedora: `dnf install curl git stow neovim`
 
 ## Bootstrapping
 

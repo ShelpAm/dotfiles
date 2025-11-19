@@ -133,7 +133,7 @@ return {
             },
             update_focused_file = {
                 enable = true,
-                update_root = false,
+                update_root = true, -- TODO 我想找到最合适的，目前还没找到。
                 ignore_list = {},
             },
             system_open = {

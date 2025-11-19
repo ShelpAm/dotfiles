@@ -10,7 +10,7 @@ return {
         "--log=error",
         -- "--log=info",
         -- "--log=verbose",
-        "--experimental-modules-support",
+        -- "--experimental-modules-support", -- Leads to crash when no compile_commands.json exists.
     },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
     root_markers = {
