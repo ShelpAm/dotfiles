@@ -28,8 +28,10 @@ curl https://raw.githubusercontent.com/ShelpAm/dotfiles/main/bootstrap.sh | bash
 
 Package services contains the following:
 *   blog start-on-boot.
+*   `systemctl enable --user ssh-agent.socket`: Autostart
 
 ## See also
 
 *   [stow documentation](https://www.gnu.org/software/stow/manual/html_node/index.html#SEC_Contents),
     by GNU stow
+*   [wots](https://github.com/ShelpAm/wots-cli) by ShelpAm

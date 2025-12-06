@@ -51,10 +51,27 @@ function M.setup()
     -- Set up lspconfig
     -- load_default_config()
     -- load_custom_config()
+
+    vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(ev)
+            -- See `:help vim.lsp.*` for documentation on any of the below functions
+            local bufopts = { noremap = true, silent = true, buffer = ev.buf }
+            local keymaps = require('user.core.keymaps')
+            keymaps.map('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame', unpack(bufopts) })
+            keymaps.map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
+            keymaps.map('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition', unpack(bufopts) })
+            -- keymaps.map('n', 'gh', vim.lsp.buf.hover, { desc = '[G]oto [H]over', unpack(bufopts) })
+            keymaps.map('n', 'gi', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplemetation', unpack(bufopts) })
+            keymaps.map('n', 'gr', vim.lsp.buf.references, { desc = '[G]oto [R]eference', unpack(bufopts) })
+            keymaps.map('n', '<leader>d', '<Cmd>Telescope lsp_document_symbols<CR>', bufopts)
+        end,
+    })
+
     local config = require('user.core.lsp.config')
     vim.lsp.enable(config.servers)
 
     -- Overriding can be placed here.
+    -- Unusable
     -- for _, server in ipairs(config.servers) do
     --     vim.lsp.config(server, {
     --         on_attach = config.default_on_attach,

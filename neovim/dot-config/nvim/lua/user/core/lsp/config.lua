@@ -13,14 +13,6 @@ function M.default_on_attach( --[[client]] _, bufnr)
     keymaps.map('n', 'gi', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplemetation', unpack(bufopts) })
     keymaps.map('n', 'gr', vim.lsp.buf.references, { desc = '[G]oto [R]eference', unpack(bufopts) })
     keymaps.map('n', '<leader>d', '<Cmd>Telescope lsp_document_symbols<CR>', bufopts)
-    vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(ev)
-            local client = vim.lsp.get_client_by_id(ev.data.client_id)
-            if client:supports_method('textDocument/completion') then
-                vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-            end
-        end,
-    })
 end
 
 -- To remove a lsp, just comment it out.
@@ -31,7 +23,7 @@ M.servers = {
     -- 'ast_grep',
     'bashls',
     'clangd',
-    'cmake',
+    -- 'cmake',
     -- 'csharp_ls',
     'cssls',
     'gopls',
@@ -40,6 +32,8 @@ M.servers = {
     'jdtls',
     'lua_ls',
     'marksman',
+    'neocmake',
+    'postgres_lsp.lua',
     'pyright',
     -- 'quick_lint_js', -- javascript
     -- 'remark_ls',

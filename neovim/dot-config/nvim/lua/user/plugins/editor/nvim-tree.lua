@@ -45,7 +45,7 @@ return {
                 --   },
                 -- },
                 float = {
-                    enable = false,
+                    enable = true,
                     quit_on_focus_loss = true,
                     open_win_config = {
                         relative = "editor",
@@ -157,7 +157,7 @@ return {
                 },
             },
             filters = {
-                git_ignored = true,
+                git_ignored = false,
                 dotfiles = false,
                 git_clean = false,
                 no_buffer = false,

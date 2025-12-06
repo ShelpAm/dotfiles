@@ -3,25 +3,26 @@
 DOTFILES_DIR="${HOME}/.dotfiles"
 TARGET_DIR="${HOME}"
 
-PACKAGES=""
-PACKAGES="${PACKAGES} bin"
-PACKAGES="${PACKAGES} clangd"
-PACKAGES="${PACKAGES} gdb"
-PACKAGES="${PACKAGES} ghostty"
-PACKAGES="${PACKAGES} git"
-PACKAGES="${PACKAGES} kitty"
-PACKAGES="${PACKAGES} hyprland"
-PACKAGES="${PACKAGES} hyprpaper"
-PACKAGES="${PACKAGES} hyprsunset"
-PACKAGES="${PACKAGES} neovim"
-PACKAGES="${PACKAGES} private"
-PACKAGES="${PACKAGES} tmux"
-# PACKAGES="${PACKAGES} uwsm"
-# PACKAGES="${PACKAGES} wezterm"
-PACKAGES="${PACKAGES} wget"
-PACKAGES="${PACKAGES} xdg-user-dirs"
-PACKAGES="${PACKAGES} zsh"
-PACKAGES="${PACKAGES} services"
+PACKAGES=(
+    bin
+    clangd
+    gdb
+    ghostty
+    git
+    kitty
+    hyprland
+    hyprpaper
+    hyprsunset
+    neovim
+    private
+    tmux
+    uwsm
+    wezterm
+    wget
+    xdg-user-dirs
+    zsh
+    services
+)
 
 mkdir -p "${DOTFILES_DIR}" "${TARGET_DIR}"
 
@@ -33,5 +34,8 @@ fi
 # Note that `--no-folding` is needed due to `--dotfiles` doesn't work in
 # conjunction with tree folding. See
 # https://lists.gnu.org/archive/html/bug-stow/2025-01/threads.html
-stow -d "${DOTFILES_DIR}" -t "${TARGET_DIR}" --restow \
-    --dotfiles --no-folding ${PACKAGES}
+# stow -d "${DOTFILES_DIR}" -t "${TARGET_DIR}" --restow \
+#     --dotfiles --no-folding ${PACKAGES}
+
+/home/shelpam/Documents/projects/wots/build/linux/x86_64/release/wots-cli -v ~/.dotfiles ~ ${PACKAGES[@]}
+

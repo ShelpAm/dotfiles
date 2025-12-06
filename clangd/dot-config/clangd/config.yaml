@@ -43,6 +43,7 @@ Diagnostics:
       # - cppcoreguidelines-macro-usage
       # - modernize-use-std-print
       - modernize-use-trailing-return-type
+      - modernize-use-emplace
       - readability-braces-around-statements
     CheckOptions:
       readability-identifier-naming.VariableCase: lower_case
