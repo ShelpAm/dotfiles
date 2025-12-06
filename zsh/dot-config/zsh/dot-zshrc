@@ -149,6 +149,8 @@ export PATH="/home/shelpam/.duckdb/cli/latest:$PATH"
 ### SSH-AGENT ###
 #################
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# TODO check if this can be placed into .zshenv
+# See https://wiki.archlinux.org/title/SSH_keys#Start_ssh-agent_with_systemd_user
 
 
 ########################
