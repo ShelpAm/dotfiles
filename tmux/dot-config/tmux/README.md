@@ -2,13 +2,14 @@
 
 ## Prerequisite
 
-Used for configuration file watching
+Used for configuration file watching, required by `b0o/tmux-autoreload`:
 ```bash
 apt install entr
 dnf install entr
 yum install entr
 ...
 ```
+
 For 'ofirgall/tmux-window-name': `python3 -m pip install --user libtmux`
 
 ## Installation

@@ -26,7 +26,7 @@ opt.hlsearch = true        -- Whether to highlight matches
 opt.ignorecase = true      -- Ignore case when searching for strings
 opt.inccommand = 'nosplit' -- Preview incremental substitute
 opt.incsearch = true       -- Search as characters are entered
-opt.laststatus = 2
+opt.laststatus = 3
 opt.list = true            -- Show some invisible characters (tabs...
 opt.listchars = { tab = '> ', trail = '.', nbsp = '+' }
 opt.mouse = 'a'            -- Enable mouse mode

@@ -2,7 +2,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         -- enabled = false,
-        event = 'BufEnter',
+        event = { 'BufEnter' },
         main = "ibl",
         opts = {
             debounce = 100,

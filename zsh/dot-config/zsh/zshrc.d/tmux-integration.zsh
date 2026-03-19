@@ -1,7 +1,7 @@
 # Work with tmux:'ofirgall/tmux-window-name'
 function tmux-window-name {
     if [ -n "$TMUX_PLUGIN_MANAGER_PATH" ]; then
-        "$TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py"
+        /usr/bin/python "$TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py"
     fi
 }
 

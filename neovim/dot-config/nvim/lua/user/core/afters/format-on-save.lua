@@ -9,6 +9,14 @@ local function should_format(filetype, filename)
         not vim.tbl_contains(excluded_filenames, filename)
 end
 
+local function has_formatting_client(bufnr)
+    local clients = vim.lsp.get_clients({
+        bufnr = bufnr,
+        method = vim.lsp.protocol.Methods.textDocument_formatting,
+    })
+    return #clients > 0
+end
+
 vim.api.nvim_create_autocmd('BufWritePre', {
     group = augroup('format_on_save'),
     callback = function(opts)
@@ -16,8 +24,8 @@ vim.api.nvim_create_autocmd('BufWritePre', {
         local filename = vim.api.nvim_buf_get_name(opts.buf) -- This gives the full path
         filename = vim.fn.fnamemodify(filename, ':t')        -- :t means tail, gets the file's basename
         -- print("[debug] autocmds.lua filetype: ", filetype, "filename: ", filename)
-        if should_format(filetype, filename) then
-            vim.lsp.buf.format()
+        if should_format(filetype, filename) and has_formatting_client(opts.buf) then
+            vim.lsp.buf.format({ bufnr = opts.buf, async = false })
         end
     end,
 })

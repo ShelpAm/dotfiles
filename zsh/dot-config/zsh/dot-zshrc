@@ -118,21 +118,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 [ -x $(command -v zoxide) ] && eval "$(zoxide init zsh --cmd cd)"
 
 
-#############
-### pyenv ###
-#############
-# pyenv is a version manager for python, as it allows multiple version to be
-# installed on your machine.
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if [ -x "$(command -v pyenv)" ]; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-
 ##############
 ### Dotnet ###
 ##############
@@ -157,6 +142,13 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 ### TMUX Integration ###
 ########################
 source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
+
+
+###################
+### Avante-APIs ###
+###################
+# Used in neovim
+export AVANTE_MOONSHOT_API_KEY=sk-Rjz9qQ00fnmEUAKPv2OJaEc9Or03Ae5xcuR1cOx9XbzWg9pL
 
 
 #############

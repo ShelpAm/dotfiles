@@ -14,5 +14,21 @@ return {
             })
             vim.g.copilot_no_tab_map = true
         end
+    },
+    {
+        "zbirenbaum/copilot.lua",
+        -- enabled = false,
+        dependencies = {
+            "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+        },
+        cmd = "Copilot",
+        opts = {
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+            filetypes = {
+                markdown = true,
+                help = true,
+            },
+        },
     }
 }

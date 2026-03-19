@@ -14,11 +14,11 @@
 edge='microsoft-edge-dev'
 
 args=(
-    --password-store=gnome-libsecret
-    --enable-wayland-ime
+    # --password-store=gnome-libsecret
+    # --enable-wayland-ime
     # --enable-features=UseOzonePlatform,WaylandLinuxDrmSyncobj
-    --ozone-platform=wayland
-    --ozone-platform-hint=auto
+    # --ozone-platform=x11
+    # --ozone-platform-hint=auto
 )
 
 # If profile lock broken, rm the lock.
@@ -26,4 +26,3 @@ if [ ! -e ~/.config/microsoft-edge-dev/SingletonSocket ]; then
     rm ~/.config/microsoft-edge-dev/Singleton*
 fi
 exec ${edge} ${args[@]} "$@"
-

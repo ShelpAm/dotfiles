@@ -136,10 +136,6 @@ return {
                 update_root = true, -- TODO 我想找到最合适的，目前还没找到。
                 ignore_list = {},
             },
-            system_open = {
-                cmd = "",
-                args = {},
-            },
             diagnostics = {
                 enable = false,
                 show_on_dirs = true,

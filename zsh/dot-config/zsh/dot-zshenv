@@ -48,6 +48,9 @@ export VISUAL=nvim
 ##############
 ### NVIDIA ###
 ##############
+# What if I'm just using one single GPU (dGPU)? Do I still need to define so
+# many variables?
+
 # Since nvidia driver may (possibly) be used in non-GUI environment, define them
 # in `.zshrc`, rather than `hyprland.conf`. (Except GUI-only variables)
 export __NV_PRIME_RENDER_OFFLOAD=1       # Default to use NVIDIA card

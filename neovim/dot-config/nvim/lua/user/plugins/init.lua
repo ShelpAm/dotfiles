@@ -118,11 +118,13 @@ require('lazy').setup({
         cache = {
             enabled = true,
         },
-        reset_packpath = true, -- reset the package path to improve startup time
+        reset_packpath = false, -- reset the package path to improve startup time
+        -- Now turned off to cooperate with `vim.pack`
+
         rtp = {
-            reset = true,      -- reset the runtime path to $VIMRUNTIME and your config directory
+            reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
             ---@type string[]
-            paths = {},        -- add any custom paths here that you want to includes in the rtp
+            paths = {},   -- add any custom paths here that you want to includes in the rtp
             ---@type string[] list any plugins you want to disable here
             disabled_plugins = {
                 -- 'gzip',

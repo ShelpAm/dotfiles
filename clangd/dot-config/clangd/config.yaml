@@ -3,14 +3,13 @@ CompileFlags:                     # Tweak the parse settings
     # -Werror,
     -Wall, -Wextra, -Wpedantic, -Wmisleading-indentation, -Wunused,
     -Wuninitialized, -Wshadow, -Wconversion]
-  # Add: [-Wall, -Wextra, -std=c++26, -stdlib=libc++]
   Remove: []
   # Compiler: g++
   # Compiler: clang++             # Change argv[0] of compile flags to `clang++`
 
 Index:
-  Background: Build     # Disable slow background indexing of these files.
-  StandardLibrary: false
+  Background: Build      # Enable background indexing of these files.
+  StandardLibrary: false # Eargerly indexing STL
 
 Style:
   AngledHeaders: 
@@ -27,12 +26,10 @@ Diagnostics:
       - portability-*
       - modernize-*
       - readability-*
-    Remove:
-      # Duplicates
-      - readability-magic-numbers
-
-      - bugprone-easily-swappable-parameters
-      - cppcoreguidelines-pro-type-union-access
+    Remove: # Items to be removed and why.
+      - readability-magic-numbers # Duplicates cppcoreguidelines-magic-numbers
+      - bugprone-easily-swappable-parameters # Hard to enforce
+      - cppcoreguidelines-pro-type-union-access # Libraries like glm need this
       - readability-identifier-length
       # - cppcoreguidelines-pro-bounds-constant-array-index
       # - readability-qualified-auto
@@ -42,11 +39,23 @@ Diagnostics:
       - cppcoreguidelines-avoid-magic-numbers
       # - cppcoreguidelines-macro-usage
       # - modernize-use-std-print
-      - modernize-use-trailing-return-type
-      - modernize-use-emplace
-      - readability-braces-around-statements
+      - modernize-use-emplace # This decreases compilation speed and makes diagnostics harder to read.
+      - modernize-use-trailing-return-type # This is ugly.
+      - modernize-use-nodiscard # Use `nodiscard` when it's really necessary, or it'll be too verbose. 
+                                # See https://github.com/isocpp/CppCoreGuidelines/issues/2109
+      - readability-braces-around-statements # Allows for short `if`, `while`, and etc.
     CheckOptions:
-      readability-identifier-naming.VariableCase: lower_case
+      # This should be put in `project/.clangd` file, not in user config.
+      # readability-identifier-naming.VariableCase: lower_case
+      # readability-identifier-naming.ClassCase: CamelCase
+      # readability-identifier-naming.EnumCase: CamelCase
+      # readability-identifier-naming.FunctionCase: lower_case
+      # readability-identifier-naming.GlobalConstantCase: lower_case
+      # readability-identifier-naming.MemberCase: lower_case
+      # readability-identifier-naming.MemberSuffix: _
+      # readability-identifier-naming.NamespaceCase: lower_case
+      # readability-identifier-naming.StructCase: CamelCase
+      # readability-identifier-naming.UnionCase: CamelCase
     FastCheckFilter: Loose
   UnusedIncludes: None
   Includes:

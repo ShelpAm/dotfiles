@@ -1,7 +1,7 @@
 return {
     {
         "windwp/nvim-autopairs",
-        enabled = true,
+        enabled = false,
         event = { 'BufEnter' },
         dependencies = { 'hrsh7th/nvim-cmp' },
         config = function()

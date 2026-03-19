@@ -1,0 +1,13 @@
+[Unit]
+Description=Gracefully stop Edge before logout or shutdown
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/true
+# 加减号 "-" 表示忽略命令返回的错误（例如 Edge 根本没打开时）
+# --wait 会阻塞等待，直到 Edge 完全退出，保证数据写进磁盘
+ExecStop=-/usr/bin/killall --wait -s INT msedge
+
+[Install]
+WantedBy=default.target

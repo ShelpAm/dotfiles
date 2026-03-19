@@ -94,7 +94,7 @@ return {
                 compile_directory = ".",
                 compile_command = {
                     c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
-                    cpp = { exec = "g++", args = { "-g", "-std=c++26", "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
+                    cpp = { exec = "clang++", args = { "-g", "-std=c++26", "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
                     rust = { exec = "rustc", args = { "$(FNAME)" } },
                     java = { exec = "javac", args = { "$(FNAME)" } },
                 },
@@ -107,7 +107,7 @@ return {
                     java = { exec = "java", args = { "$(FNOEXT)" } },
                 },
                 multiple_testing = -1,
-                maximum_time = 5000,
+                maximum_time = 2000,
                 output_compare_method = "squish",
                 view_output_diff = true,
 

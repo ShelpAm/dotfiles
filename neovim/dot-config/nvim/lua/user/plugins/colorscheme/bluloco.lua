@@ -1,7 +1,7 @@
 return {
     {
         'uloco/bluloco.nvim',
-        -- enabled = false,
+        enabled = false,
         lazy = false,
         priority = 1000,
         dependencies = { 'rktjmp/lush.nvim' },

@@ -9,12 +9,14 @@ return {
         },
         opts = {
             options = {
+                max_name_length = 24,
+                max_prefix_length = 20,
                 offsets = {
                     {
                         filetype = "NvimTree",
                         text = "File Explorer",
                         text_align = "left",
-                        separator = false,
+                        separator = true,
                     }
                 },
             }
