@@ -17,7 +17,8 @@ return {
                 checkThirdParty = false,
                 -- Make the server aware of Neovim runtime files
                 library = {
-                    vim.env.VIMRUNTIME
+                    vim.env.VIMRUNTIME,
+                    "/usr/share/hypr/stubs"
                 },
             },
             telemetry = {

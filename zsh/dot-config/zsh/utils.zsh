@@ -34,15 +34,19 @@ function reload {
 }
 
 function config-zsh {
-    nvim "${ZDOTDIR}/.zshrc" && reload
+    nvim "${ZDOTDIR}/.zshrc" "${ZDOTDIR}/.zshenv" && reload
 }
 
 function config-hyprland {
-    nvim "${XDG_CONFIG_HOME}/hypr/hyprland.conf"
+    nvim "${XDG_CONFIG_HOME}/hypr/hyprland.lua"
 }
 
 config-ghostty() {
     nvim "${XDG_CONFIG_HOME}/ghostty/config"
+}
+
+config-niri() {
+    nvim "${XDG_CONFIG_HOME}/niri/config.kdl"
 }
 
 function config {

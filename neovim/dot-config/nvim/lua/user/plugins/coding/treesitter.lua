@@ -1,7 +1,7 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        -- enabled = false,
+        enabled = false,
         event = { 'BufEnter' },
         build = ':TSUpdate',
         config = function()

@@ -89,6 +89,11 @@ export COMPETITIVE_PROGRAMMING_DIR="${HOME}/Documents/projects/competitive-progr
 # Useful links:
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland
 # See: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Per-window_input_method_state
+# export GTK_IM_MODULE=fcitx # Fcitx says don't use this (will override wayland)
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export INPUT_METHOD=fcitx
 
 
 # Cargo (rust)
