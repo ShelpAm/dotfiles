@@ -35,6 +35,9 @@ export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
 # export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 export PYTHONHISTFILE="${XDG_STATE_HOME}/python/history"
 
+# Java
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk/"
+
 # WGET
 export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 ensure-parent-dir "${WGETRC}"
@@ -118,6 +121,7 @@ typeset -U path
 path=($path \
     ~/.local/bin \
     ~/.local/share/python/bin \
+    ~/.cargo/bin \
     ~/.local/opt/gradle-8.12.1/bin \
     /opt/pt \
     $GEM_HOME/bin \

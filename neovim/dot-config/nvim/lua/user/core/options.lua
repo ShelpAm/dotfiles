@@ -6,8 +6,8 @@
 local opt = vim.opt
 
 opt.autoread = true
-opt.autowrite = false    -- Enable auto write
-opt.autowriteall = false -- Enable auto write all the files
+opt.autowrite = false    -- Disable auto write
+opt.autowriteall = false -- Disable auto write all the files
 opt.background = 'light'
 opt.binary = true
 opt.clipboard = 'unnamedplus' -- Synchronize with system clipboard

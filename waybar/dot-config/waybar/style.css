@@ -1,0 +1,238 @@
+/* ── Blulco light theme ── */
+* {
+    border: none;
+    font-size: 13px;
+    font-family: "Monaspace Neon", "Symbols Nerd Font";
+}
+
+window#waybar {
+    background: transparent;
+    margin: 4px 6px 0 6px;
+}
+
+/* ── Module containers ── */
+.modules-left,
+.modules-center,
+.modules-right {
+    border-radius: 22px;
+    margin: 8px 12px 0 12px;
+    padding: 2px 0;
+    background: #f9f9fb;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04),
+                0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.modules-left  { padding-left: 4px; padding-right: 4px; }
+.modules-center { padding-left: 16px; padding-right: 16px; }
+.modules-right { padding-left: 8px; padding-right: 4px; }
+
+/* ── Module item base ── */
+#battery,
+#custom-clipboard,
+#custom-colorpicker,
+#custom-powerDraw,
+#bluetooth,
+#pulseaudio,
+#network,
+#disk,
+#memory,
+#backlight,
+#cpu,
+#temperature,
+#custom-weather,
+#idle_inhibitor,
+#jack,
+#tray,
+#custom-audio,
+#window,
+#workspaces,
+#clock {
+    padding: 1px 7px;
+    margin: 0 1px;
+    color: #383a42;
+    border-radius: 14px;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── Workspaces ── */
+#workspaces {
+    padding: 0 2px;
+    margin: 0;
+}
+
+#workspaces button {
+    padding: 0;
+    margin: 1px 1px;
+    border-radius: 50%;
+    min-width: 26px;
+    min-height: 26px;
+    color: #b8bcc8;
+    background: transparent;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: #e6edfa;
+    color: #3b82f6;
+}
+
+#workspaces button.active {
+    background: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25);
+}
+
+#workspaces button.empty {
+    color: #d8dae0;
+}
+
+/* ── Window title ── */
+#window {
+    color: #3b82f6;
+    font-weight: 600;
+    font-size: 12.5px;
+    padding: 1px 10px;
+    margin-left: 2px;
+    background: #f0f3f8;
+    border-radius: 14px;
+}
+
+/* ── Clock ── */
+#clock {
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 1px 10px;
+}
+
+/* ── Right module hover ── */
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#network:hover,
+#battery:hover,
+#tray:hover,
+#custom-audio:hover,
+#window:hover {
+    background: rgba(59, 130, 246, 0.06);
+}
+
+/* ── System monitors ── */
+#cpu,
+#memory,
+#disk,
+#temperature {
+    font-size: 12.5px;
+    padding: 1px 7px;
+}
+
+#cpu          { color: #4078f2; }
+#memory       { color: #a855f7; }
+#disk         { color: #0891b2; }
+#temperature  { color: #383a42; }
+
+#temperature.critical {
+    color: #ffffff;
+    background: #d8456c;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 1px 8px;
+}
+
+/* ── Network ── */
+#network {
+    color: #3b82f6;
+    font-size: 12.5px;
+}
+
+#network.disconnected {
+    color: #b8bcc8;
+}
+
+/* ── Battery ── */
+#battery {
+    font-size: 12.5px;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #50a14f;
+    font-weight: 600;
+}
+
+#battery.warning:not(.charging) {
+    color: #e5a64b;
+    font-weight: 600;
+}
+
+#battery.critical:not(.charging) {
+    color: #ffffff;
+    background: #d8456c;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 1px 8px;
+}
+
+/* ── Tray ── */
+#tray {
+    padding: 1px 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background: #ffffff;
+    border: 1px solid #e1e4e9;
+    border-radius: 12px;
+    padding: 6px;
+}
+
+#tray menuitem {
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+#tray menuitem:hover {
+    background: #e6edfa;
+}
+
+/* ── Audio ── */
+#custom-audio {
+    font-size: 12.5px;
+}
+
+#custom-audio.muted {
+    color: #d8456c;
+    font-weight: 600;
+}
+
+/* ── Tooltips ── */
+tooltip {
+    background: #ffffff;
+    border: 1px solid #e1e4e9;
+    border-radius: 14px;
+    padding: 10px 14px;
+    text-shadow: none;
+}
+
+tooltip label {
+    color: #383a42;
+    font-size: 12px;
+    text-shadow: none;
+}
+
+/* ── Right module spacing ── */
+.modules-right > * {
+    margin-right: 4px;
+}
+
+.modules-right > *:last-child {
+    margin-right: 0;
+}

@@ -1,0 +1,81 @@
+-- This file defines workspaces and their binding monitors.
+
+for i = 1, 6 do
+    hl.workspace_rule({
+        workspace = tostring(i),
+        monitor = EndpointMain,
+    })
+end
+
+for i = 7, 10 do
+    hl.workspace_rule({
+        workspace = tostring(i),
+        monitor = EndpointBuiltin,
+    })
+end
+
+hl.workspace_rule({
+    workspace = "1",
+    default = true,
+})
+
+-- Force WeChat to workspace 3 (same as QQ)
+-- Flatpak + XWayland breaks exec_cmd's workspace tracking,
+-- so we catch it by window class instead.
+hl.window_rule({
+    name      = "wechat-workspace",
+    match     = { class = "^wechat$" },
+    workspace = "3 silent",
+})
+
+
+
+--------------------------------
+---- WINDOWS AND WORKSPACES ----
+--------------------------------
+
+-- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
+-- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+
+-- Example window rules that are useful
+
+local suppressMaximizeRule = hl.window_rule({
+    -- Ignore maximize requests from all apps. You'll probably like this.
+    name           = "suppress-maximize-events",
+    match          = { class = ".*" },
+
+    suppress_event = "maximize",
+})
+-- suppressMaximizeRule:set_enabled(false)
+
+hl.window_rule({
+    -- Fix some dragging issues with XWayland
+    name     = "fix-xwayland-drags",
+    match    = {
+        class      = "^$",
+        title      = "^$",
+        xwayland   = true,
+        float      = true,
+        fullscreen = false,
+        pin        = false,
+    },
+
+    no_focus = true,
+})
+
+-- Layer rules also return a handle.
+-- local overlayLayerRule = hl.layer_rule({
+--     name  = "no-anim-overlay",
+--     match = { namespace = "^my-overlay$" },
+--     no_anim = true,
+-- })
+-- overlayLayerRule:set_enabled(false)
+
+-- Hyprland-run windowrule
+hl.window_rule({
+    name  = "move-hyprland-run",
+    match = { class = "hyprland-run" },
+
+    move  = "20 monitor_h-120",
+    float = true,
+})

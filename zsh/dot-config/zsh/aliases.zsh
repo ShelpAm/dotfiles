@@ -12,3 +12,8 @@ alias -s png='xdg-open'
 alias -s jpg='xdg-open'
 alias -s jar='java -jar'
 alias -s html='xdg-open'
+
+# launch scripts → aliases
+alias hmcl='bash $(find ${HOME}/.local/ -name "HMCL-*")'
+alias logisim='java -jar /home/shelpam/.local/opt/logisim-generic-2.7.1.jar'
+alias packettracer='env QT_QPA_PLATFORM=xcb packettracer --no-sandbox'

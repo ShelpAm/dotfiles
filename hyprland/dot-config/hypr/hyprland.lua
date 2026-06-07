@@ -10,17 +10,38 @@
 -- require("myColors")
 
 
+MainMod = "SUPER" -- Window key
+
 ------------------
 ---- MONITORS ----
 ------------------
 
+EndpointBuiltin = "desc:BOE 0x0B8B 0x00000001"
+EndpointMain = "desc:ViewSonic Corporation VX24G26J-4K YPU262200527"
+EndpointSide = "desc:Xiaomi Corporation Redmi 27 NU 3948623S9134E"
+
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output = "eDP-1",
+    output = EndpointBuiltin,
     mode = "2560x1600@240",
-    position = "auto",
-    scale = "1.78125",
+    position = "0x0",
+    -- scale = 1.78125,
+    scale = 1.67,
     -- scale = "auto",
+})
+hl.monitor({
+    output = EndpointMain,
+    -- mode = "1920x1080@160",
+    mode = "3840x2160@160",
+    position = "1536x0",
+    scale = 2,
+    -- vrr = 2,
+})
+hl.monitor({
+    output = EndpointSide,
+    mode = "3840x2160@60",
+    position = "auto",
+    scale = 1.5,
 })
 
 
@@ -30,53 +51,16 @@ hl.monitor({
 
 -- Set programs that you use
 -- Here use global variables to let submodules know them
-Terminal          = "ghostty"
-FileManager       = "nautilus"
-Menu              = "hyprlauncher"
-local terminal    = "ghostty"
-local fileManager = "nautilus"
-local menu        = "hyprlauncher"
+Terminal    = "ghostty"
+FileManager = "dolphin"
+Menu        = "hyprlauncher"
+-- local terminal    = "ghostty"
+-- local fileManager = "nautilus"
+-- local menu        = "hyprlauncher"
 
 
--------------------
----- AUTOSTART ----
--------------------
-
--- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
--- Autostart necessary processes (like notifications daemons, status bars, etc.)
--- Or execute your favorite apps at launch like this:
---
--- hl.on("hyprland.start", function ()
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
--- end)
-
-hl.on("hyprland.start", function()
-    --- Background services
-    hl.exec_cmd("swaync")
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("fcitx5 -d")
-
-    hl.exec_cmd("systemctl --user start hyprpolkitagent.service")
-    hl.exec_cmd("systemctl --user start tmux.service")
-
-    hl.exec_cmd("dbus-update-activation-environment --systemd --all") --Sync env
-
-    --- Foreground apps
-    hl.exec_cmd(terminal, { workspace = 1 })
-    hl.exec_cmd("firefox", { workspace = 2 })
-    hl.exec_cmd("qq", { workspace = 3 })
-    hl.exec_cmd("flatpak run com.tencent.WeChat", { workspace = 3 })
-    hl.exec_cmd("thunderbird", { workspace = 4 })
-    hl.exec_cmd("clash-verge", { workspace = 4 })
-end)
-
-
+require('user.autostart')
 require('user.env')
-
 require('user.permissions')
 
 
@@ -88,7 +72,7 @@ require('user.permissions')
 hl.config({
     general = {
         gaps_in          = 5,
-        gaps_out         = 20,
+        gaps_out         = 10,
 
         border_size      = 2,
 
@@ -128,6 +112,8 @@ hl.config({
             passes   = 1,
             vibrancy = 0.1696,
         },
+
+        -- screen_shader    = "~/.config/hypr/shaders/summer.glsl",
     },
 
     animations = {
@@ -135,7 +121,11 @@ hl.config({
     },
 
     xwayland = {
-        force_zero_scaling = true
+        force_zero_scaling = true, -- Prevent wechat from being blurry, when scaling factor is float.
+    },
+
+    opengl = {
+        nvidia_anti_flicker = true,
     }
 })
 
@@ -170,20 +160,20 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
 -- uncomment all if you wish to use that.
-hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
-hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
-hl.window_rule({
-    name        = "no-gaps-wtv1",
-    match       = { float = false, workspace = "w[tv1]" },
-    border_size = 0,
-    rounding    = 0,
-})
-hl.window_rule({
-    name        = "no-gaps-f1",
-    match       = { float = false, workspace = "f[1]" },
-    border_size = 0,
-    rounding    = 0,
-})
+-- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+-- hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
+-- hl.window_rule({
+--     name        = "no-gaps-wtv1",
+--     match       = { float = false, workspace = "w[tv1]" },
+--     border_size = 0,
+--     rounding    = 0,
+-- })
+-- hl.window_rule({
+--     name        = "no-gaps-f1",
+--     match       = { float = false, workspace = "f[1]" },
+--     border_size = 0,
+--     rounding    = 0,
+-- })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
@@ -214,6 +204,11 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+
+        -- Allow keyboard/mouse to wake display from dpms off
+        mouse_move_enables_dpms = true,
+        key_press_enables_dpms  = true,
+
     },
 })
 
@@ -252,59 +247,17 @@ hl.gesture({
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
     name        = "razer-razer-viper-ultimate",
-    sensitivity = -0.35,
+    sensitivity = -0.5,
+})
+
+hl.device({
+    name        = "razer-razer-viper-ultimate-1",
+    sensitivity = -0.5,
 })
 
 
 require('user.keybindings')
 require('user.screenshot')
-
---------------------------------
----- WINDOWS AND WORKSPACES ----
---------------------------------
-
--- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-
--- Example window rules that are useful
-
-local suppressMaximizeRule = hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
-    name           = "suppress-maximize-events",
-    match          = { class = ".*" },
-
-    suppress_event = "maximize",
-})
--- suppressMaximizeRule:set_enabled(false)
-
-hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name     = "fix-xwayland-drags",
-    match    = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
-
-    no_focus = true,
-})
-
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
-
--- Hyprland-run windowrule
-hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
-
-    move  = "20 monitor_h-120",
-    float = true,
-})
+require('user.screenrecord')
+require('user.screenpick')
+require('user.workspaces')

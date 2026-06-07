@@ -2,7 +2,7 @@
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local mainMod = MainMod -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(Terminal))
@@ -61,6 +61,6 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 hl.bind(mainMod .. " + F", hl.dsp.layout('colresize +conf'))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("loginctl lock-session"))
 
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
