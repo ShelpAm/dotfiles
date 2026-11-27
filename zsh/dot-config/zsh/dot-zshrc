@@ -148,7 +148,6 @@ source "${ZDOTDIR}/zshrc.d/tmux-integration.zsh"
 ### Avante-APIs ###
 ###################
 # Used in neovim
-export AVANTE_MOONSHOT_API_KEY=sk-Rjz9qQ00fnmEUAKPv2OJaEc9Or03Ae5xcuR1cOx9XbzWg9pL
 
 
 #############
